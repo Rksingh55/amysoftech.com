@@ -1,0 +1,104 @@
+
+
+.herosection_main_section {
+    background-image: url("https://www.freepik.com/free-video/group-multi-ethnical-female-male-graduates-tossing-their-black-caps-up-air-cheerfully-graduation-day_478783#fromView=keyword&page=1&position=1");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 32px;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    color: #e8e8e8;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .content .heading {
+    font-weight: 700;
+    font-size: 32px;
+  }
+  
+  .content .para {
+    line-height: 1.5;
+  }
+  
+  .content .btn {
+    color: #e8e8e8;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .card:hover::before {
+    width: 100%;
+  }
+  
+  .card:hover {
+    box-shadow: none;
+  }
+  
+  .card:hover .btn {
+    color: #212121;
+    background: #e8e8e8;
+  }
+  
+  .content .btn:hover {
+    outline: 2px solid #e8e8e8;
+    background: transparent;
+    color: #e8e8e8;
+  }
+  
+  .content .btn:active {
+    box-shadow: none;
+  }
+  
+  
+.mainheaderbg{
+  background-image: url("https://img.freepik.com/free-photo/abstract-bluish-paint-background-wallpaper_53876-102504.jpg?t=st=1717742932~exp=1717746532~hmac=354184423ebdf64c5aa77d4eaf4ab24b4b67cb41cd599c2b362116c45372fa0f&w=900");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+  
+
+/* .herosectionbg{
+  background-image: url("https://d3nn873nee648n.cloudfront.net/1200x1800-new/11484/CG341197.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} */

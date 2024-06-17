@@ -1,0 +1,35 @@
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Header from '@/components/front/Pageheader';
+import BlankLayout from '@/components/Layouts/BlankLayout';
+import Frontheader from '@/components/front/Navbar';
+import Auctioncards from '@/components/cards/auctioncard';
+import Footer from '@/components/Layouts/Footer';
+const AuctionCard = () => {
+
+  return (
+    <>
+      <ToastContainer />
+      <Frontheader />
+      <div className='pt-[100px]'>
+        <Header heading="Auction List"  />
+      </div>
+      <div className='w-[90%] m-auto '>
+        <div className="container   ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+            <Auctioncards />
+          </div>
+        </div>
+      </div>
+      <Footer/>
+
+     
+    </>
+  );
+};
+
+AuctionCard.getLayout = (page: any) => {
+  return <BlankLayout>{page}</BlankLayout>;
+};
+export default AuctionCard;
