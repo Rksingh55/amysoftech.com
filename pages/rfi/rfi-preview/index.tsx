@@ -45,20 +45,20 @@ function Rfipreview() {
                         <h1 className="text-2xl font-semibold">View RFI</h1>
                         <div>
                             <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Document</button>
-                            <button className="bg-gray-300 text-black px-4 py-2 rounded-md">Back</button>
+                            
                         </div>
                     </div>
 
                     <div className="mb-6">
                         <h2 className="text-xl font-semibold mb-2">General Information</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-3">
-                            <div>
+                            <div className='flex flex-col gap-2'>
                                 <p><strong>Request ID :</strong> <span >RFI-0000000004</span></p>
                                 <p><strong>Location :</strong> <span className={maskedClass}>Oman</span></p>
                                 <p><strong>TypeType :</strong> <span >Pre-Qualification</span></p>
                                 <p><strong>Description : </strong> <span className={maskedClass}>Add</span></p>
                             </div>
-                            <div>
+                            <div className='flex flex-col gap-2'>
                                 <p><strong>Department : </strong> <span >CEO Office</span></p>
                                 <p><strong>Project : </strong> <span className={maskedClass}>PRJ-000133</span></p>
                                 <p><strong>Budget : </strong> <span className={maskedClass}>9000</span></p>
@@ -70,11 +70,11 @@ function Rfipreview() {
                     <div className="mb-6">
                         <h2 className="text-xl font-semibold mb-2">Important Dates</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-3">
-                            <div>
+                            <div className='flex flex-col gap-2'>
                                 <p><strong>Publish Date :</strong> <span >2024-05-23 11:45:00</span></p>
                                 <p><strong>Clarification End Date : </strong> <span className={maskedClass}>2024-05-30 11:46:00</span></p>
                             </div>
-                            <div>
+                            <div className='flex flex-col gap-2'>
                                 <p><strong>Float Date:</strong> <span className={maskedClass}>2024-05-24 11:45:00</span></p>
                                 <p><strong>Close Date : </strong> <span >2024-05-31 11:47:00</span></p>
                             </div>
@@ -102,6 +102,13 @@ function Rfipreview() {
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="text-xl font-semibold mb-2">Bid Information</h2>
+                        <div className='py-3'>
+                            <h1><strong>Bid Value : </strong>5000</h1>
                         </div>
                     </div>
 
