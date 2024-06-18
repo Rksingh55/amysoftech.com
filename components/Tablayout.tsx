@@ -14,7 +14,7 @@ const Tabs: React.FC = () => {
 
   const tabs: Tab[] = [
     {
-      title: 'Discription',
+      title: 'Description',
       content:
         <div>
           <h1 className='font-bold md:text-2xl text-xl py-2'>Description</h1>
