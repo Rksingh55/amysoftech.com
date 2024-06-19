@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { IoMdClose } from "react-icons/io";
 import { FcApproval } from 'react-icons/fc';
 import { FaRegEye } from 'react-icons/fa';
+import Footer from '@/components/Layouts/Footer';
 
 function Rfipreview() {
     const router = useRouter();
@@ -76,7 +77,7 @@ function Rfipreview() {
 
     const handleUpload = async () => {
         const docIndex = documents.findIndex(doc => doc.id === currentDocId);
-        if (docIndex === -1 || !documents[docIndex].file || !documents[docIndex].description) {
+        if (docIndex === -1 || !documents[docIndex].file ) {
             toast.error('Please select  file and description');
             return;
         }
@@ -95,7 +96,7 @@ function Rfipreview() {
                     index === docIndex ? { ...doc, isLoading: false, isUploaded: true, description: '' } : doc
                 )
             );
-            toast.success('Document uploaded successfully!');
+            // toast.success('Document uploaded successfully!');
         } catch (error) {
             setDocuments((prevDocs) =>
                 prevDocs.map((doc, index) =>
@@ -150,22 +151,20 @@ function Rfipreview() {
         <>
             <ToastContainer />
             <Frontheader />
-            <div className='pt-[100px]'>
+            <div className='pt-[100px] '>
                 <Header heading="RFI Preview " />
             </div>
             <div className='w-[90%] m-auto py-8 '>
                 <div className="bg-white shadow-md rounded-lg p-6">
-                    <div className="flex justify-between items-center mb-6">
+                    <div className=" mb-6">
                         <h1 className="text-2xl font-semibold">View RFI</h1>
-                        {/* <div>
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">All Document</button>
-                        </div> */}
+                        
                     </div>
 
                     <div className="mb-6">
                         <h2 className="text-xl font-semibold mb-2">General Information</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-3">
-                            <div className='flex flex-col gap-2'>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-3 ">
+                            <div className='flex flex-col gap-2 md:border-r-2'>
                                 <p><strong>Request ID :</strong> <span>RFI-0000000004</span></p>
                                 <p><strong>Location :</strong> <span>Oman</span></p>
                                 <p><strong>Type :</strong> <span className={maskedClass}>Pre-Qualification</span></p>
@@ -174,16 +173,16 @@ function Rfipreview() {
                             <div className='flex flex-col gap-2'>
                                 <p><strong>Department : </strong > <span className={maskedClass}>CEO Office</span></p>
                                 <p><strong>Project : </strong> <span className={maskedClass}>PRJ-000133</span></p>
-                                <p><strong>Budget : </strong> <span></span></p>
-                                <p><strong>Instruction : </strong> <span>Ins</span></p>
+                                <p><strong>Currency : </strong> <span className={maskedClass}> INR</span></p>
+                                <p><strong>Instruction : </strong> <span> </span></p>
                             </div>
                         </div>
                     </div>
 
                     <div className="mb-6">
                         <h2 className="text-xl font-semibold mb-2">Important Dates</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-3">
-                            <div className='flex flex-col gap-2 '>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-3 ">
+                            <div className='flex flex-col gap-2 md:border-r-2'>
                                 <p><strong>Publish Date :</strong> <span>2024-05-23 11:45:00</span></p>
                                 <p><strong>Clarification End Date : </strong> <span className={maskedClass}>2024-05-30 11:46:00</span></p>
                             </div>
@@ -244,7 +243,7 @@ function Rfipreview() {
                     </div>
 
                     {isOpen && (
-                        <div className="fixed inset-0 flex items-center justify-center z-[1000]">
+                        <div className="fixed inset-2 flex items-center justify-center z-[1000]">
                             <div className="fixed inset-0 bg-black opacity-50" onClick={() => togglePopup(null)}></div>
                             <div className="bg-white rounded-lg p-6 z-10 mx-auto">
                                 <div className='flex justify-end'>
@@ -263,7 +262,7 @@ function Rfipreview() {
                                     <div className='mt-2'>
                                         <label>Add Description</label>
                                         <textarea
-                                            placeholder='Describe your document'
+                                            placeholder='Describe about your document'
                                             className='border-2 py-3 px-2 w-full rounded-md'
                                             value={documents.find(doc => doc.id === currentDocId)?.description || ''}
                                             onChange={(e) => handleDescriptionChange(e, currentDocId)}
@@ -282,7 +281,7 @@ function Rfipreview() {
                                 </div>
 
 
-                                <div className='uploaded document   mt-12  '>
+                                <div className='uploaded document   mt-2  '>
                                     <h1 className='py-2'>Uploaded document</h1>
                                     <table className="min-w-full bg-white">
                                         <thead>
@@ -290,7 +289,7 @@ function Rfipreview() {
                                                 <th className="py-2 px-4 border-b-2">SN</th>
                                                 <th className="py-2 px-4 border-b-2">Document Name</th>
 
-                                                <th className="py-2 px-4 border-b-2">Uploaded File</th>
+                                                <th className="py-2 px-4 border-b-2">File Name</th>
                                                 <th className="py-2 px-4 border-b-2">Status</th>
                                                 <th className="py-2 px-4 border-b-2">Action</th>
 
@@ -362,6 +361,7 @@ function Rfipreview() {
                     )}
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }
