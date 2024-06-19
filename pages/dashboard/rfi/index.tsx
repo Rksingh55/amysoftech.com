@@ -23,9 +23,13 @@ import IconCaretsDown from '@/components/Icon/IconCaretsDown';
 import IconSquareCheck from '@/components/Icon/IconSquareCheck';
 import IconClock from '@/components/Icon/IconClock';
 import IconMail from '@/components/Icon/IconMail';
-import Dashboardbredcrumb from "@/components/dashboardbredcrumb"
+import { DataTable, DataTableSortStatus } from 'mantine-datatable';
+import sortBy from 'lodash/sortBy';
+import IconTrashLines from '@/components/Icon/IconTrashLines';
+import IconEdit from '@/components/Icon/IconEdit';
 
 import { IRootState } from '@/store';
+import IconEye from '@/components/Icon/IconEye';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
     ssr: false,
 });
@@ -355,9 +359,106 @@ const Analytics = () => {
             },
         },
     };
+
+
+
+    const [items, setItems] = useState([
+        {
+            id: 1,
+            reqestId: 'REQID20129',
+            department: 'CEO Office',
+            project: 'PRJ-000133',
+            location: 'Oman',
+            budget: '90000',
+            type: 'Pre-Qualification',
+            status:"Pending"
+
+        },
+        {
+            id: 2,
+            reqestId: 'REQID20129',
+            department: 'CEO Office',
+            project: 'PRJ-000133',
+            location: 'Oman',
+            budget: '90000',
+            type: 'Pre-Qualification',
+            status:"Pending"
+
+        },
+        {
+            id: 3,
+            reqestId: 'REQID20129',
+            department: 'CEO Office',
+            project: 'PRJ-000133',
+            location: 'Oman',
+            budget: '90000',
+            type: 'Pre-Qualification',
+            status:"Pending"
+
+        },
+        {
+            id: 4,
+            reqestId: 'REQID20129',
+            department: 'CEO Office',
+            project: 'PRJ-000133',
+            location: 'Oman',
+            budget: '90000',
+            type: 'Pre-Qualification',
+            status:"Pending"
+        },
+        
+
+    ]);
+
+    const [page, setPage] = useState(1);
+    const PAGE_SIZES = [10, 20, 30, 50, 100];
+    const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
+    const [initialRecords, setInitialRecords] = useState(sortBy(items, 'invoice'));
+    const [records, setRecords] = useState(initialRecords);
+    const [selectedRecords, setSelectedRecords] = useState<any>([]);
+
+    const [search, setSearch] = useState('');
+    const [sortStatus, setSortStatus] = useState<DataTableSortStatus>({
+        columnAccessor: 'firstName',
+        direction: 'asc',
+    });
+
+    useEffect(() => {
+        setPage(1);
+    }, [pageSize]);
+
+    useEffect(() => {
+        const from = (page - 1) * pageSize;
+        const to = from + pageSize;
+        setRecords([...initialRecords.slice(from, to)]);
+    }, [page, pageSize, initialRecords]);
+
+    useEffect(() => {
+        setInitialRecords(() => {
+            return items.filter((item) => {
+                return (
+                    item.reqestId.toLowerCase().includes(search.toLowerCase()) ||
+                    item.department.toLowerCase().includes(search.toLowerCase()) ||
+                    item.project.toLowerCase().includes(search.toLowerCase()) ||
+                    item.location.toLowerCase().includes(search.toLowerCase()) ||
+                    item.budget.toLowerCase().includes(search.toLowerCase()) ||
+                    item.type.toLowerCase().includes(search.toLowerCase())
+                );
+            });
+        });
+    }, [search]);
+
+    useEffect(() => {
+        const data2 = sortBy(initialRecords, sortStatus.columnAccessor);
+        setRecords(sortStatus.direction === 'desc' ? data2.reverse() : data2);
+        setPage(1);
+    }, [sortStatus]);
+
+   
+
+
     return (
         <div>
-           <Dashboardbredcrumb/>
             <div className="pt-3">
                 <div className="mb-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <div className="panel h-full sm:col-span-2 lg:col-span-1">
@@ -744,140 +845,89 @@ const Analytics = () => {
                     </div>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                    <div className="panel h-full">
-                        <div className="-m-5 mb-5 flex  items-start border-b border-white-light p-5 dark:border-[#1b2e4b]">
-                            <div className="shrink-0 rounded-full ring-2 ring-white-light ltr:mr-4 rtl:ml-4 dark:ring-dark">
-                                <img src="/assets/images/profile-1.jpeg" alt="profile1" className="h-10 w-10 rounded-full object-cover" />
-                            </div>
-                            <div className="font-semibold">
-                                <h6>Jimmy Turner</h6>
-                                <p className="mt-1 text-xs text-white-dark">Monday, Nov 18</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="pb-8 text-white-dark">
-                                {`"Duis aute irure dolor" in reprehenderit in voluptate velit esse
-                cillum "dolore eu fugiat" nulla pariatur. Excepteur sint
-                occaecat cupidatat non proident.`}
-                            </div>
-                            <div className="absolute bottom-0 -mx-5 flex w-full items-center justify-between p-5">
-                                <div className="flex items-center">
-                                    <IconThumbUp className="w-5 h-5 text-info inline ltr:mr-1.5 rtl:ml-1.5 relative -top-0.5" />
-                                    <span className="dark:text-info">551 Likes</span>
-                                </div>
-                                <button type="button" className="flex items-center rounded-md bg-success/30 px-1.5 py-1 text-xs text-success hover:shadow-[0_10px_20px_-10px] hover:shadow-success">
-                                    Read More
-                                    <IconCaretsDown className="w-4 h-4 rtl:rotate-90 -rotate-90 ltr:ml-1.5 rtl:mr-1.5" />
-                                </button>
+
+                {/* ------fir request table------ */}
+                <div className="">
+                    <div className="panel border-white-light px-0 dark:border-[#1b2e4b] mt-3 ">
+                        <div className="invoice-table">
+
+                            <div className="datatables pagination-padding pago">
+                                <h1 className='p-3 text-xl font-semibold'>RFI Request</h1>
+                                <DataTable
+                                    className="table-hover whitespace-nowrap  "
+                                    records={records}
+                                    columns={[
+
+                                        {
+                                            accessor: 'Requested Id',
+                                            sortable: true,
+                                            render: ({ reqestId }) => <div className="font-semibold">{`${reqestId}`}</div>,
+
+                                        },
+                                        {
+                                            accessor: 'Department',
+                                            sortable: true,
+                                            render: ({ department }) => <div className="font-semibold">{`${department}`}</div>,
+                                        },
+                                        {
+                                            accessor: 'Project',
+                                            sortable: true,
+                                            render: ({ project }) => <div className="font-semibold">{`${project}`}</div>,
+                                        },
+                                        {
+                                            accessor: 'Location',
+                                            sortable: true,
+                                            titleClassName: '',
+                                            render: ({ location }) => <div className=" font-semibold">{`${location}`}</div>,
+                                        },
+                                        {
+                                            accessor: 'Bid Value',
+                                            sortable: true,
+                                            render: ({ budget }) => <div className="text-left font-semibold font-bold">{`${budget}`}</div>,
+
+                                        },
+                                        {
+                                            accessor: 'Type',
+                                            sortable: true,
+                                            render: ({ type }) => <div className="text-left font-semibold  font-bold">{`${type}`}</div>,
+
+                                        },
+                                        {
+                                            accessor: 'Status',
+                                            sortable: true,
+                                            render: ({ status }) => <div className="text-left font-semibold text-green-500 font-bold">{`${status}`}</div>,
+
+                                        },
+                                        {
+                                            accessor: 'action',
+
+                                            title: 'Actions',
+                                            render: ({ id }) => (
+                                                <div className="mx-auto flex w-max items-center gap-4">
+                                                    <Link href="/rfi/rfi-preview" className="flex hover:text-primary">
+                                                        <IconEye />
+                                                    </Link>
+                                                   
+                                                </div>
+                                            ),
+                                        },
+                                    ]}
+                                    highlightOnHover
+                                    totalRecords={initialRecords.length}
+                                    recordsPerPage={pageSize}
+                                    page={page}
+                                    onPageChange={(p) => setPage(p)}
+                                    recordsPerPageOptions={PAGE_SIZES}
+                                    onRecordsPerPageChange={setPageSize}
+                                    sortStatus={sortStatus}
+                                    onSortStatusChange={setSortStatus}
+                                    onSelectedRecordsChange={setSelectedRecords}
+                                    paginationText={({ from, to, totalRecords }) => `Showing  ${from} to ${to} of ${totalRecords} entries`}
+                                />
                             </div>
                         </div>
                     </div>
 
-                    <div className="panel h-full">
-                        <div className="-m-5 mb-5 flex items-center  justify-between border-b border-white-light p-5 dark:border-[#1b2e4b]">
-                            <div className="flex">
-                                <div className="media-aside align-self-start">
-                                    <div className="shrink-0 rounded-full ring-2 ring-white-light ltr:mr-4 rtl:ml-4 dark:ring-dark">
-                                        <img src="/assets/images/g-8.png" alt="profile2" className="h-10 w-10 rounded-full object-cover" />
-                                    </div>
-                                </div>
-                                <div className="font-semibold">
-                                    <h6>Dev Summit - New York</h6>
-                                    <p className="mt-1 text-xs text-white-dark">Bronx, NY</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="pb-8 text-center font-semibold">
-                            <div className="mb-4 text-primary">4 Members Going</div>
-                            <div className="flex items-center justify-center gap-3 pb-8">
-                                <img className="h-10 w-10 overflow-hidden rounded-lg object-cover ring-2 ring-white-light dark:ring-dark" src="/assets/images/profile-1.jpeg" alt="profile1" />
-                                <img className="h-10 w-10 overflow-hidden rounded-lg object-cover ring-2 ring-white-light dark:ring-dark" src="/assets/images/profile-2.jpeg" alt="profile2" />
-                                <img className="h-10 w-10 overflow-hidden rounded-lg object-cover ring-2 ring-white-light dark:ring-dark" src="/assets/images/profile-3.jpeg" alt="profile3" />
-                                <img className="h-10 w-10 overflow-hidden rounded-lg object-cover ring-2 ring-white-light dark:ring-dark" src="/assets/images/profile-4.jpeg" alt="profile4" />
-                            </div>
-
-                            <div className="absolute bottom-0 -mx-5 flex w-full items-center justify-between p-5">
-                                <button type="button" className="btn btn-secondary btn-lg w-full border-0 bg-gradient-to-r from-[#3d38e1] to-[#1e9afe]">
-                                    View Details
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="panel h-full">
-                        <div className="-m-5 mb-5 flex items-center justify-between border-b border-white-light p-5 dark:border-[#1b2e4b]">
-                            <button type="button" className="flex font-semibold">
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-secondary text-white ltr:mr-4 rtl:ml-4">
-                                    <span>FD</span>
-                                </div>
-                                <div style={{ textAlign: 'left' }}>
-                                    <h6>Figma Design</h6>
-                                    <p className="mt-1 text-xs text-white-dark">Design Reset</p>
-                                </div>
-                            </button>
-
-                            <div className="dropdown">
-                                <Dropdown
-                                    offset={[0, 5]}
-                                    placement={`${isRtl ? 'bottom-start' : 'bottom-end'}`}
-                                    btnClassName="hover:text-primary"
-                                    button={<IconHorizontalDots className="w-5 h-5 text-black/70 dark:text-white/70 hover:!text-primary" />}
-                                >
-                                    <ul>
-                                        <li>
-                                            <button type="button">View Project</button>
-                                        </li>
-                                        <li>
-                                            <button type="button">Edit Project</button>
-                                        </li>
-                                        <li>
-                                            <button type="button">Mark as Done</button>
-                                        </li>
-                                    </ul>
-                                </Dropdown>
-                            </div>
-                        </div>
-                        <div className="group">
-                            <div className="mb-5 text-white-dark">Doloribus nisi vel suscipit modi, optio ex repudiandae voluptatibus officiis commodi. Nesciunt quas aut neque incidunt!</div>
-                            <div className="mb-2 flex items-center justify-between font-semibold">
-                                <div className="flex items-center">
-                                    <IconSquareCheck className="w-4 h-4 text-success" />
-                                    <div className="text-xs ltr:ml-2 rtl:mr-2">5 Tasks</div>
-                                </div>
-                                <p className="text-primary">65%</p>
-                            </div>
-                            <div className="mb-5 h-2.5 rounded-full bg-dark-light p-0.5 dark:bg-dark-light/10">
-                                <div className="h-full rounded-full bg-gradient-to-r from-[#1e9afe] to-[#60dfcd]" style={{ width: '65%' }}></div>
-                            </div>
-                            <div className="flex items-end justify-between">
-                                <div className="flex items-center rounded-full bg-danger/20 px-2 py-1 text-xs font-semibold text-danger">
-                                    <IconClock className="w-3 h-3 ltr:mr-1 rtl:ml-1" />
-                                    3 Days Left
-                                </div>
-                                <div className="flex items-center justify-center group-hover:-space-x-2 rtl:space-x-reverse rtl:group-hover:space-x-reverse">
-                                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#bfc9d4] font-semibold text-white opacity-0 transition-all duration-300 group-hover:opacity-100 dark:bg-dark">
-                                        +6
-                                    </span>
-                                    <img
-                                        className="h-9 w-9 rounded-full border-2 border-white object-cover transition-all duration-300 dark:border-dark"
-                                        src="/assets/images/profile-6.jpeg"
-                                        alt="profile6"
-                                    />
-                                    <img
-                                        className="h-9 w-9 rounded-full border-2 border-white object-cover transition-all duration-300 dark:border-dark"
-                                        src="/assets/images/profile-7.jpeg"
-                                        alt="profile7"
-                                    />
-                                    <img
-                                        className="h-9 w-9 rounded-full border-2 border-white object-cover transition-all duration-300 dark:border-dark"
-                                        src="/assets/images/profile-8.jpeg"
-                                        alt="profile8"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

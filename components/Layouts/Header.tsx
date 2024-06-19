@@ -33,7 +33,6 @@ import Swal from 'sweetalert2';
 
 const Header = () => {
     const router = useRouter();
-
     const showAlert = async (type: any) => {
         if (type === 10) {
             Swal.fire({

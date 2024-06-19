@@ -38,7 +38,7 @@ const Login = () => {
                     toast.success("Login successfull")
                     setTimeout(() => {
                         router.push('/auction/auction-preview')
-                    }, 1000)
+                    }, 100)
                     localStorage.setItem('token', JSON.stringify(data.access_token))
                     localStorage.setItem('userName', JSON.stringify(data.name))
                     localStorage.setItem('userEmail', JSON.stringify(data.email))
