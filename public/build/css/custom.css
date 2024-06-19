@@ -291,16 +291,10 @@ body {
 }
 
 .myheader {
-    position: fixed;
-    z-index: 99;
-    height: 100px;
     width: 100%;
     background: #314fc6; 
-    padding: 18px;
-    -webkit-transition: all ease-out .5s;
-    -moz-transition: all ease-out .5s;
-    -o-transition: all ease-out .5s;
-    transition: all ease-out .5s;
+    padding: 4px;
+   
 }
 
 .active-header {

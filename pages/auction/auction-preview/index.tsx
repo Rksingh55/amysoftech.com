@@ -103,9 +103,7 @@ function aucktion() {
     <>
       <ToastContainer />
       <Frontheader />
-      <div className='pt-[100px]'>
-        <Header heading="Auction Preview" />
-      </div>
+      <Header heading="Auction Preview" />
       <div className='w-[90%] m-auto '>
         <div className='flex gap-4 md:flex-row flex-col  mt-5'>
           <div className='md:basis-[40%] w-full    md:h-[400px]'>

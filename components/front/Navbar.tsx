@@ -5,6 +5,9 @@ import { BsTextLeft } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { CiUser } from "react-icons/ci";
+import { AiTwotoneMail } from "react-icons/ai";
+import { TfiEmail } from "react-icons/tfi";
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +25,38 @@ const Navbar = () => {
 
     return (
         <>
+            <div className="bg-white flex justify-between py-3 w-[90%] m-auto font-semibold ">
+                <div className="max-sm:hidden flex gap-1">
+                   <TfiEmail className="mt-[3px]"/> Email : amysoftech@gmail.com
+                </div>
+                <div className="">
+                    <div className="  text-black flex  gap-2  ">
+                        <div> {name !== "" ? (
+                            <p className="flex gap-1"> <CiUser className="mt-[2px]" />{name}</p>
+                        ) : (
+                            <p>User</p>
+
+                        )}</div>
+                        <div className="h-[17px] w-[1px] bg-black"></div>
+                        <div>
+                            {name !== "" ? (
+                                <Link href="/dashboard/tender">
+                                    <button className="  rounded-full hover:text-blue-500">
+                                        Access Bidmate
+                                    </button>
+                                </Link>
+                            ) : (
+                                <Link href="/auth/login">
+                                    <button className="  rounded-full ">
+                                        Login
+                                    </button>
+                                </Link>
+                            )}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <header className="myheader ">
                 <nav className="navbar navbar-expand-sm  ">
                     <div className="container">
@@ -29,7 +64,7 @@ const Navbar = () => {
                             <img src="/assets/images/FDO_Logo1.svg" alt="Logo" className=" w-[50px]" />
                         </Link>
                         <BsTextLeft className="text-white text-4xl md:hidden" onClick={togglePopup} />
-                        {/* -------popup code------- */}
+
                         <div className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 ${isOpen ? 'visible' : 'hidden'}`}>
                             <div className="bg-white p-6 rounded-md w-[90%] text-center">
                                 <div className=" flex justify-end items-end py-2">
@@ -80,30 +115,6 @@ const Navbar = () => {
                                 </ul>
 
 
-                                <div className="  text-black flex  gap-2 mr-6 bg-white p-2 rounded-md ">
-                                    <div> {name !== "" ? (
-                                        <p className="flex gap-1"> <CiUser className="mt-[2px]" />{name}</p>
-                                    ) : (
-                                        <p>User</p>
-
-                                    )}</div>
-                                    <div className="h-[17px] w-[1px] bg-black"></div>
-                                    <div>
-                                        {name !== "" ? (
-                                            <Link href="/dashboard/tender">
-                                                <button className="  rounded-full hover:text-blue-500">
-                                                    Access Bidmate
-                                                </button>
-                                            </Link>
-                                        ) : (
-                                            <Link href="/auth/login">
-                                                <button className="  rounded-full ">
-                                                    Login
-                                                </button>
-                                            </Link>
-                                        )}
-                                    </div>
-                                </div>
 
 
                                 <Language></Language>
@@ -112,6 +123,10 @@ const Navbar = () => {
                     </div>
                 </nav>
             </header>
+
+
+
+
         </>
     )
 };

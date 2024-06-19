@@ -24,7 +24,7 @@ function Rfipreview() {
 
 
     const handleLogin = (): void => {
-        
+
         if (!name) {
             toast.error('You must be logged in to view rfi detail, Please Login');
             setTimeout(() => {
@@ -77,7 +77,7 @@ function Rfipreview() {
 
     const handleUpload = async () => {
         const docIndex = documents.findIndex(doc => doc.id === currentDocId);
-        if (docIndex === -1 || !documents[docIndex].file ) {
+        if (docIndex === -1 || !documents[docIndex].file) {
             toast.error('Please select  file and description');
             return;
         }
@@ -151,14 +151,12 @@ function Rfipreview() {
         <>
             <ToastContainer />
             <Frontheader />
-            <div className='pt-[100px] '>
-                <Header heading="RFI Preview " />
-            </div>
+            <Header heading="RFI Preview " />
             <div className='w-[90%] m-auto py-8 '>
                 <div className="bg-white shadow-md rounded-lg p-6">
                     <div className=" mb-6">
                         <h1 className="text-2xl font-semibold">View RFI</h1>
-                        
+
                     </div>
 
                     <div className="mb-6">
@@ -361,7 +359,7 @@ function Rfipreview() {
                     )}
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     )
 }

@@ -12,9 +12,7 @@ const AuctionCard = () => {
     <>
       <ToastContainer />
       <Frontheader />
-      <div className='pt-[100px]'>
-        <Header heading="Auction List"  />
-      </div>
+      <Header heading="Auction List" />
       <div className='w-[90%] m-auto '>
         <div className="container   ">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
@@ -22,9 +20,9 @@ const AuctionCard = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
 
-     
+
     </>
   );
 };

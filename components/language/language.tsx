@@ -6,6 +6,7 @@ import Dropdown from '@/components/Dropdown';
 import { IRootState } from '@/store';
 import { useTranslation } from 'react-i18next';
 import IconCaretDown from '@/components/Icon/IconCaretDown';
+import { MdArrowDropDown } from 'react-icons/md';
 
 
 const Language = () => {
@@ -43,15 +44,15 @@ const Language = () => {
                     <Dropdown
                         offset={[0, 8]}
                         placement={`${isRtl ? 'bottom-start' : 'bottom-end'}`}
-                        btnClassName="flex items-center gap-2.5 rounded-lg border border-white-dark/30 bg-white px-2 py-1.5 text-white-dark hover:border-primary hover:text-primary dark:bg-black"
+                        btnClassName="flex items-center gap-1 text-white  px-2 py-1.5 text-white-dark hover:border-primary hover:text-primary dark:bg-black"
                         button={
                             <>
                                 <div>
-                                    <img src={`/assets/images/flags/${flag.toUpperCase()}.svg`} alt="image" className="h-5 w-5 rounded-full object-cover" />
+                                    <img src={`/assets/images/flags/${flag.toUpperCase()}.svg`} alt="image" className="h-5 w-5  object-cover" />
                                 </div>
                                 <div className="text-base font-bold uppercase">{flag}</div>
                                 <span className="shrink-0">
-                                    <IconCaretDown />
+                                    <MdArrowDropDown  />
                                 </span>
                             </>
                         }

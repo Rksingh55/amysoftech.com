@@ -14,9 +14,7 @@ function Tenders() {
   return (
     <>
       <Frontheader />
-      <div className='pt-[100px]'>
-        <Header heading="Tender List"  />
-      </div>
+      <Header heading="Tender List" />
       <div className='bg-[#F3F7FD]'>
         <div className='w-[90%] m-auto'>
           <div className='py-6  '>
@@ -50,7 +48,7 @@ function Tenders() {
             </div>
           </div>
         </div>
-      <Footer/>
+        <Footer />
       </div>
 
     </>

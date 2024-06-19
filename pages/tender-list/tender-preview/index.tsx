@@ -9,9 +9,7 @@ function TenderPreview() {
     return (
         <>
             <Frontheader />
-            <div className='pt-[100px]'>
                 <Header heading="Tender Preview"/>
-            </div>
             <div className=' w-[90%] m-auto'>
                 <div className='border-2 bg-white    rounded-md p-3  mt-4 flex justify-between'>
                     <div>

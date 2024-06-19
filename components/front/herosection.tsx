@@ -9,7 +9,7 @@ import Link from 'next/link';
 import Frontheader from './Navbar';
 import Footer from '../Layouts/Footer';
 import { useEffect, useState } from 'react';
-
+import AuctionCard from '@/components/cards/auctioncard';
 export default function Home() {
     const { t, i18n } = useTranslation();
     let u_name = "";
@@ -23,134 +23,34 @@ export default function Home() {
         <>
             <Frontheader />
             <div className=" bg-gradient-to-b  from-blue-400 to-purple-300 text-white min-h-screen flex flex-col gap-5 md:flex-row items-center justify-center  ">
-                <div className=" md:p-3 p-5  basis-1/2 md:mt-12  max-sm:mt-[120px] text-start">
-                    <h1 className="text-3xl md:text-5xl font-bold mb-4">
-                        {t('We’re Leader in Waste Management Services')}
+                <div className="  p-4  basis-1/2    text-center herosectionbg"  >
+                    <p className='py-2'>Welcome To FDO Bidmate Auction House</p>
+                    <h1 className="text-3xl md:text-6xl font-bold mb-4">
+                        {t('Build, Sell & Collect Digital items.')}
                     </h1>
                     <p className="mb-6 text-lg md:text-xl">
                         {t(' The services will provide safe, efficient, economically andenvironmentally sustainable services in innovative ways to Conserve the Environment of Our Beautiful Oman for Future Generations')}
                     </p>
                     <Link href="/dashboard/tender">
                         <button className="bg-white text-blue-500 font-semibold py-[12px] px-10 rounded-full mb-6">
-                            Book a Demo
+                            Start Exploring
                         </button>
                     </Link>
                 </div>
-                <div className=" max-w-md space-y-2  basis-1/2 md:mt-12 max-sm:mb-10">
-                    <a href="#"
-                        className="flex items-center justify-between bg-white text-blue-500 py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 border-b-2">
-                        <div className="flex items-center">
-                            <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                                <span className="text-xl"><FaComment /></span>
-                            </div>
-                            <span className="text-lg font-medium">Raise A Complaint</span>
-                        </div>
-                        <FaArrowRightLong />
-                    </a>
-                    <a href="#"
-                        className="flex items-center justify-between bg-white text-blue-500 py-3 px-6 rounded-lg shadow-md hover:bg-gray-100">
-                        <div className="flex items-center">
-                            <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                                <span className="text-xl"><RiChatFollowUpLine /></span>
-                            </div>
-                            <span className="text-lg font-medium">Case Follow Up</span>
-                        </div>
-                        <FaArrowRightLong />
 
-                    </a>
-                    <a href="#"
-                        className="flex items-center justify-between bg-white text-blue-500 py-3 px-6 rounded-lg shadow-md hover:bg-gray-100">
-                        <div className="flex items-center">
-                            <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                                <span className="text-xl"><MdOutlineAppRegistration /></span>
-                            </div>
-                            <span className="text-lg font-medium">Customer Registration</span>
-                        </div>
-                        <FaArrowRightLong />
-
-                    </a>
-                    <a href="#"
-                        className="flex items-center justify-between bg-white text-blue-500 py-3 px-6 rounded-lg shadow-md hover:bg-gray-100">
-                        <div className="flex items-center">
-                            <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                                <span className="text-xl"><GiArchiveRegister /></span>
-                            </div>
-                            <span className="text-lg font-medium">Resident Registration</span>
-                        </div>
-                        <FaArrowRightLong />
-
-                    </a>
-                </div>
             </div>
-            <div className='' >
-                <div className=" p-3 md:w-[45%] m-auto mt-12 text-center md:text-3xl">
+            <div className=' py-[80px]' >
+                <div className=" p-3 md:w-[45%] m-auto  text-center md:text-3xl  ">
                     <h1 className=" font-bold mb-2">
-                        {t('Waste Services')}
+                        {t('Live Auction')}
                     </h1>
-                    <p className="mb-6  md:text-xl">
-                        {t(' Be’ah strongly believe that to achieve its Vision, we need to operate in a sustainable way.')}
+                    <p className="mb-6  md:text-lg ">
+                        {t(' Explore on the world s best & largest Bidding marketplace with our beauty Bidding products. We want to be a part of your smile, success and future growth.')}
                     </p>
                 </div>
-                <div className='w-[90%] m-auto flex flex-col md:flex-row gap-2'>
-                    <div
-                        className="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col  justify-center gap-3 relative after:absolute after:h-full after:bg-purple-500 z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all"
-                    >
-                        <FaRocket className='text-2xl' />
-                        <p
-                            className="cardtxt font-semibold text-black  group-hover:text-gray-700 text-xl tracking-widest"
-                        >
-                            Waste Collection
-                        </p>
-                        <p className="blueberry font-semibold text-black text-sm leading-8 tracking-widest">
-                            Be'ah business trash and recycling pickup is the best choice for the organization.
-                        </p>
-                        <div className="ordernow flex flex-row justify-between items-center w-full">
-                        </div>
-                    </div>
-                    <div
-                        className="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col  justify-center gap-3 relative after:absolute after:h-full after:bg-purple-500 z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all"
-                    >
-                        <FaRocket className='text-2xl' />
-                        <p
-                            className="cardtxt font-semibold text-black  group-hover:text-gray-700 text-xl tracking-widest"
-                        >
-                            Waste Collection
-                        </p>
-                        <p className="blueberry font-semibold text-black text-sm leading-8 tracking-widest">
-                            Be'ah business trash and recycling pickup is the best choice for the organization.
-                        </p>
-                        <div className="ordernow flex flex-row justify-between items-center w-full">
-                        </div>
-                    </div>
-                    <div
-                        className="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col  justify-center gap-3 relative after:absolute after:h-full after:bg-purple-500 z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all"
-                    >
-                        <FaRocket className='text-2xl' />
-                        <p
-                            className="cardtxt font-semibold text-black  group-hover:text-gray-700 text-xl tracking-widest"
-                        >
-                            Waste Collection
-                        </p>
-                        <p className="blueberry font-semibold text-black text-sm leading-8 tracking-widest">
-                            Be'ah business trash and recycling pickup is the best choice for the organization.
-                        </p>
-                        <div className="ordernow flex flex-row justify-between items-center w-full">
-                        </div>
-                    </div>
-                    <div
-                        className="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col  justify-center gap-3 relative after:absolute after:h-full after:bg-purple-500 z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all"
-                    >
-                        <FaRocket className='text-2xl' />
-                        <p
-                            className="cardtxt font-semibold text-black  group-hover:text-gray-700 text-xl tracking-widest"
-                        >
-                            Waste Collection
-                        </p>
-                        <p className="blueberry font-semibold text-black text-sm leading-8 tracking-widest">
-                            Be'ah business trash and recycling pickup is the best choice for the organization.
-                        </p>
-                        <div className="ordernow flex flex-row justify-between items-center w-full">
-                        </div>
+                <div className='w-[90%] m-auto '>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+                        <AuctionCard />
                     </div>
                 </div>
             </div>
