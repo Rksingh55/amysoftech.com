@@ -73,23 +73,13 @@ function auctioncard() {
             timeLeft: '0d : 1h : 39m : 20s',
         },
 
-        {
-            year: 2019,
-            make: 'Chevrolet',
-            model: 'Equinox',
-            trim: 'LT',
-            imageUrl: 'https://img.freepik.com/free-photo/grey-luxury-sedan-car-sunset_114579-4045.jpg?t=st=1717736054~exp=1717739654~hmac=9dea2a054904986400f22516d6f8ec9e9c28d03f471a9171e7832a7a7243d7d9&w=996',
-            currentBid: 876.00,
-            buyNow: 5000.00,
-            bids: 30,
-            timeLeft: '0d : 1h : 39m : 20s',
-        }
+       
     ];
 
     return (
         <>
             {cars?.map((car, index) => (
-                <div data-aos="zoom-in" key={index} className="max-w-sm mx-auto w-full bg-white    overflow-hidden my-4  cursor-pointer  transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-100 ">
+                <div data-aos="zoom-in" key={index} className="max-w-sm mx-auto w-full bg-white my-3    overflow-hidden   cursor-pointer  transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-100 ">
                     <div className='p-1    '>
                         <img className="w-full object-cover  " src={car?.imageUrl} alt={car?.model} />
                     </div>

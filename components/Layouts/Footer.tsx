@@ -19,7 +19,7 @@ const Footer = () => {
                                 <Link href="#" className="text-gray-400 hover:text-white">Instagram</Link>
                             </div>
                         </div>
-                        <div className="w-full md:basis-1/3 mb-6 md:mb-0">
+                        <div className="w-full max-sm:text-start md:basis-1/3 mb-6 md:mb-0">
                             <h2 className="text-xl font-bold mb-4">Quick Links</h2>
                             <ul className="space-y-2">
                                 <li><Link href="/" className="text-gray-400 hover:text-white">Home</Link></li>

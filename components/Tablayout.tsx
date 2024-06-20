@@ -10,7 +10,7 @@ const Review = [
   {}, {}, {}, {}
 ]
 const Tabs: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<number>(1);
 
   const tabs: Tab[] = [
     {
@@ -28,14 +28,17 @@ const Tabs: React.FC = () => {
       title: 'Top Contributors',
       content:
         <div className=''>
-          <table className='border-2 rounded-md  bg-white mt-2 max-sm:text-[10px] '>
-            <tr className='border-2 bg-blue-400 text-white '>
+          <table className=' rounded-md  bg-white mt-2 max-sm:text-[10px] '>
+           <thead>
+           <tr className=' bg-[#F4F7FF] text-black '>
               <th className='p-2'>Date</th>
               <th className='p-2'>Bid</th>
               <th className='p-2'>User</th>
             
             </tr>
-            <tr>
+           </thead>
+          <tbody>
+          <tr>
               <td className='p-2'>07/06/2024</td>
               <td className='p-2'>732872.0 $</td>
               <td className='p-2'>Lab@gmail.com</td>
@@ -50,6 +53,7 @@ const Tabs: React.FC = () => {
               <td className='p-2'>732872.0 $</td>
               <td className='p-2'>Lab@gmail.com</td>
             </tr>
+          </tbody>
           </table>
         </div>
     },
@@ -58,8 +62,8 @@ const Tabs: React.FC = () => {
         <div>
           <h1 className='text-2xl py-2'>Total Reviews (100)</h1>
           {
-            Review?.map(() => (
-              <div className='flex gap-3 mt-10'>
+            Review?.map((index:any) => (
+              <div key={index} className='flex gap-3 mt-10'>
                 <div className=''>
                   <img className='bg-red-200 h-[100px] w-[100px] object-cover rounded-full' src='https://img.freepik.com/free-photo/close-up-young-successful-man-smiling-camera-standing-casual-outfit-against-blue-background_1258-65746.jpg?t=st=1718003155~exp=1718006755~hmac=daade446d4efc8d07e9f2f98cc65dd89324f158e169257f69cc6a01c4397851a&w=900' />
 

@@ -14,11 +14,13 @@ const AuctionCard = () => {
       <Frontheader />
       <Header heading="Auction List" />
       <div className='w-[90%] m-auto '>
-        <div className="container   ">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-            <Auctioncards />
-          </div>
+        <div className=' py-3 flex justify-end'>
+          <input type='search' className='border-2 rounded-full py-2 px-8' placeholder='Search here..' />
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <Auctioncards />
+        </div>
+
       </div>
       <Footer />
 

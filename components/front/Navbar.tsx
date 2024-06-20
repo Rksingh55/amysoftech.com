@@ -29,7 +29,7 @@ const Navbar = () => {
 
                 <div className="bg-white flex justify-between py-3 w-[90%] m-auto font-semibold ">
                     <div className="max-sm:hidden flex gap-1">
-                        <AiTwotoneMail  className="mt-[3px]" /> Email : amysoftech@gmail.com
+                        <AiTwotoneMail className="mt-[3px]" /> Email : amysoftech@gmail.com
                     </div>
                     <div className="">
                         <div className="  text-black flex  gap-2  ">
@@ -74,6 +74,8 @@ const Navbar = () => {
                                     <MdOutlineClose onClick={togglePopup} className="text-2xl " />
                                 </div>
                                 <ul>
+                                    <Link href="/" onClick={togglePopup}> <li className="hover:bg-blue-100 mt-1 py-2 border-1">Home</li></Link>
+
                                     <Link href="/tender-list" onClick={togglePopup}> <li className="hover:bg-blue-100 mt-1 py-2 border-1">Tenders</li></Link>
                                     <Link href="/rfi" onClick={togglePopup}> <li className="hover:bg-blue-100 mt-1 py-2 border-1">RFI</li></Link>
                                     <Link href="/auction" onClick={togglePopup}> <li className="hover:bg-blue-100 mt-1 py-2 border-1">Auction</li></Link>

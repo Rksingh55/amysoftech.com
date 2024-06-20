@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { GrFormSubtract } from "react-icons/gr";
 import Header from '@/components/front/Pageheader';
 import { FaStar } from 'react-icons/fa6';
@@ -6,7 +6,6 @@ import { FaStarHalfAlt } from 'react-icons/fa';
 import { IoAddOutline } from "react-icons/io5";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { CiHeart } from "react-icons/ci";
 import Tabs from '@/components/Tablayout';
 import { BiDetail, BiDollarCircle } from "react-icons/bi";
 import { SiAmazoncloudwatch } from "react-icons/si";
@@ -98,6 +97,13 @@ function aucktion() {
     toast.success(`${newBid} $, Auto bid submitted successfully!`);
   };
 
+  const descriptionRef = useRef<any>(null);
+
+  const handleScroll = () => {
+    descriptionRef?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+
 
   return (
     <>
@@ -111,7 +117,7 @@ function aucktion() {
           </div>
           <div className='md:basis-[60%] w-full flex flex-col gap-2 '>
             <div className=' md:px-4 '>
-              <h1 className='md:text-3xl text-xl font-bold'>2014 KIA Sorento, LX</h1>
+              <h1 className='md:text-3xl text-xl font-bold'>2014 KIA Sorento</h1>
               <div className='flex gap-1 py-3'>
                 <FaStar className='text-yellow-500' />
                 <FaStar className='text-yellow-500' />
@@ -120,7 +126,8 @@ function aucktion() {
                 <FaStarHalfAlt className='text-yellow-500' />
 
               </div>
-              <p className=' py-2'>Korem ipsum dolor amet, consectetur adipiscing elit. Maece nas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
+              <p className=' py-2'>Korem ipsum dolor amet, consectetur adipiscing elit. Maece nas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla....</p>
+              <p className='font-bold cursor-pointer hover:text-blue-400 hover:underline' onClick={handleScroll}>Read Description </p>
               <p className=' py-2'>ITEM CONDITION : NEW</p>
               <p className=' py-2 font-bold text-blue-400'>Time Left -</p>
 
@@ -133,7 +140,6 @@ function aucktion() {
                 <div className='flex gap-2 p-2'>
                   <div className='flex justify-center items-center '> <BiDollarCircle className='text-4xl text-blue-500' /></div>
                   <div className='text-center '>
-
                     <h1 className=' font-bold'>61</h1>
                     <p>Active Bidder</p>
                   </div>
@@ -177,9 +183,6 @@ function aucktion() {
                   <button onClick={Increment} className='bg-green-100 text-black hover:bg-green-300 md:px-6 p-3 flex items-center justify-center' disabled={autoMode}>
                     <IoAddOutline className='' />
                   </button>
-
-
-
                   <button onClick={handleBidSubmit} type='submit' className='bg-blue-500 md:px-12 text-white py-3'>
                     Bid
                   </button>
@@ -188,10 +191,20 @@ function aucktion() {
 
             </div>
           </div>
-          {/* ------tabs-------- */}
         </div>
+
+        {/* ------tabs-------- */}
         <div className=' '>
           <Tabs />
+        </div>
+
+        
+        <div ref={descriptionRef} id='description'>
+          <h1 className='font-bold md:text-2xl text-xl py-2'>Description</h1>
+          <h1 className='font-bold md:text-xl text-md py-2'>How can have anything you ant in life if you ?</h1>
+          <p className=' text-justify'>If you’ve been following the crypto space, you’ve likely heard of Non-Fungible Tokens (Biddings), more popularly referred to as ‘Crypto Collectibles.’ The world of Biddings is growing rapidly. It seems there is no slowing down of these assets as they continue to go up in price. This growth comes with the opportunity for people to start new businesses to create and capture value. The market is open for players in every kind of field. Are you a collector.</p><br />
+          <p className=' text-justify'>But getting your own auction site up and running has always required learning complex coding langua ges, or hiring an expensive design firm for thousands of dollars and months of work.</p>
+          <p className=' text-justify'>Amet consectetur adipisicing elit. Maxime reprehenderit quaerat, velit rem atque vel impedit! Expensive Design.</p>
         </div>
       </div>
       <Footer />

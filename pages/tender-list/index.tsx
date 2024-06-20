@@ -43,7 +43,6 @@ function Tenders() {
               <div className='p-2 flex gap-2  justify-center'>
                 <button className='bg-blue-400 text-white px-5 py-2 rounded-md'>Filter</button>
                 <button className='border-2 text-black hover:bg-blue-400 hover:text-white px-5 py-2 rounded-md'>Save</button>
-
               </div>
             </div>
           </div>
