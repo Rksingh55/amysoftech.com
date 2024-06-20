@@ -25,37 +25,40 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="bg-white flex justify-between py-3 w-[90%] m-auto font-semibold ">
-                <div className="max-sm:hidden flex gap-1">
-                   <TfiEmail className="mt-[3px]"/> Email : amysoftech@gmail.com
-                </div>
-                <div className="">
-                    <div className="  text-black flex  gap-2  ">
-                        <div> {name !== "" ? (
-                            <p className="flex gap-1"> <CiUser className="mt-[2px]" />{name}</p>
-                        ) : (
-                            <p>User</p>
+            <div className="bg-white">
 
-                        )}</div>
-                        <div className="h-[17px] w-[1px] bg-black"></div>
-                        <div>
-                            {name !== "" ? (
-                                <Link href="/dashboard/tender">
-                                    <button className="  rounded-full hover:text-blue-500">
-                                        Access Bidmate
-                                    </button>
-                                </Link>
+                <div className="bg-white flex justify-between py-3 w-[90%] m-auto font-semibold ">
+                    <div className="max-sm:hidden flex gap-1">
+                        <AiTwotoneMail  className="mt-[3px]" /> Email : amysoftech@gmail.com
+                    </div>
+                    <div className="">
+                        <div className="  text-black flex  gap-2  ">
+                            <div> {name !== "" ? (
+                                <p className="flex gap-1"> <CiUser className="mt-[2px]" />{name}</p>
                             ) : (
-                                <Link href="/auth/login">
-                                    <button className="  rounded-full ">
-                                        Login
-                                    </button>
-                                </Link>
-                            )}
+                                <p>User</p>
+
+                            )}</div>
+                            <div className="h-[17px] w-[1px] bg-black"></div>
+                            <div>
+                                {name !== "" ? (
+                                    <Link href="/dashboard/tender">
+                                        <button className="  rounded-full hover:text-blue-500">
+                                            Access Bidmate
+                                        </button>
+                                    </Link>
+                                ) : (
+                                    <Link href="/auth/login">
+                                        <button className="  rounded-full ">
+                                            Login
+                                        </button>
+                                    </Link>
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
             <header className="myheader ">
                 <nav className="navbar navbar-expand-sm  ">

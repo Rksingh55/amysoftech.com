@@ -22,10 +22,10 @@ const Footer = () => {
                         <div className="w-full md:basis-1/3 mb-6 md:mb-0">
                             <h2 className="text-xl font-bold mb-4">Quick Links</h2>
                             <ul className="space-y-2">
-                                <li><Link href="#" className="text-gray-400 hover:text-white">Home</Link></li>
-                                <li><Link href="#" className="text-gray-400 hover:text-white">Tender</Link></li>
-                                <li><Link href="#" className="text-gray-400 hover:text-white">RFI</Link></li>
-                                <li><Link href="#" className="text-gray-400 hover:text-white">Auction</Link></li>
+                                <li><Link href="/" className="text-gray-400 hover:text-white">Home</Link></li>
+                                <li><Link href="/tender-list" className="text-gray-400 hover:text-white">Tender</Link></li>
+                                <li><Link href="/rfi" className="text-gray-400 hover:text-white">RFI</Link></li>
+                                <li><Link href="/auction" className="text-gray-400 hover:text-white">Auction</Link></li>
                             </ul>
                         </div>
                         <div className="w-full md:basis-1/3 text-start">
@@ -36,7 +36,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="text-center mt-8">
-                        <p className="text-gray-400">© 2024. Bea'h All rights reserved. Powered by AMY Softech</p>
+                        <p className="text-gray-400">© 2024 FDO. All rights reserved. Powered by Amysoftech.com</p>
                     </div>
                 </div>
             </footer>

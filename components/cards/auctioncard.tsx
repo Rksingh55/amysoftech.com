@@ -4,6 +4,7 @@ import { FcCurrencyExchange } from "react-icons/fc";
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
 import Countdown from 'react-countdown';
+import { BiDollarCircle } from 'react-icons/bi';
 
 function auctioncard() {
 
@@ -88,9 +89,9 @@ function auctioncard() {
     return (
         <>
             {cars?.map((car, index) => (
-                <div data-aos="zoom-in" key={index} className="max-w-sm mx-auto bg-white   overflow-hidden my-4  cursor-pointer  transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 hover:scale-100 ">
+                <div data-aos="zoom-in" key={index} className="max-w-sm mx-auto w-full bg-white    overflow-hidden my-4  cursor-pointer  transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-100 ">
                     <div className='p-1    '>
-                        <img className=" h-48 object-cover object-center " src={car?.imageUrl} alt={car?.model} />
+                        <img className="w-full object-cover  " src={car?.imageUrl} alt={car?.model} />
                     </div>
                     <div className="p-6">
                         <h2 className="text-gray-800 text-xl font-semibold">{car?.year} {car?.make} {car?.model}, {car?.trim}</h2>
@@ -99,18 +100,18 @@ function auctioncard() {
                                 <div className='flex  items-center justify-center'>
                                     <RiAuctionFill className='text-2xl text-green-700' />
                                 </div>
-                                <span className="text-gray-700 font-bold text-center">Current Bid <br />${car?.currentBid}</span>
+                                <span className="text-gray-700 font-bold text-center">Current Bid <br />$ {car?.currentBid}</span>
                             </div>
-                            <div className='w-[1px] h-12 bg-black'></div>
+                            {/* <div className='w-[1px] h-12 bg-black'></div> */}
                             <div className='flex gap-2'>
                                 <div className='flex  items-center justify-center'>
-                                    <FcCurrencyExchange className='text-2xl text-green-700' />
+                                    <BiDollarCircle className='text-2xl text-green-700' />
                                 </div>
-                                <span className="text-red-500 font-bold text-center">Buy Now <br /> ${car?.buyNow}</span>
+                                <span className="text-red-500 font-bold text-center">Buy Now <br /> $ {car?.buyNow}</span>
                             </div>
 
                         </div>
-                        <div className="flex gap-5 items-center justify-between mt-4 border-t-2 border-dotted py-2">
+                        <div className="flex gap-5 items-center justify-between mt-4 border-t-2 border-dotted py-3">
                             <span className="text-green-600 ">Bids : {car?.bids}</span>
                             <span className="text-blue-600">Time Left :
                                 <Countdown date={Date.now() + 1000000000} />

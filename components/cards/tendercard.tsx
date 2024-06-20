@@ -8,7 +8,7 @@ function tendercard() {
     return (
         <div> {
             tender?.map(() => (
-                <div className='bg-white  mt-2   border-2 rounded-md  bg-white  hover:border-black '>
+                <div className='  mt-2   border-2 rounded-md  bg-white   '>
 
                     <div className=' md:p-9 p-3 rounded-md hover:shadow-md'>
                         <h1 className='text-xl font-semibold py-1'>Supply of HID Cards</h1>
