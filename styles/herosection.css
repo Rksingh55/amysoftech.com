@@ -154,3 +154,30 @@
 }
 
 
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  background: white;
+  opacity: 40%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.img-zoom-result {
+  width: 497px;
+  height: 300px;
+}
+
+@media screen and (max-width: 1200px) {
+  .img-zoom-lens {
+    display: none;
+  }
+  .img-zoom-result {
+   display: none;
+  }
+}

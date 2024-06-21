@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const Footer = () => {
     return (
-        <div className='bg-[#28282B] text-white p-2 mt-5 text-center'>
-            <footer className="bg-gray-900 text-white py-8">
+        <div className='bg-gray-900 text-white  mt-5 text-center'>
+            <footer className="py-8 w-[90%] m-auto">
                 <div className="container mx-auto ">
                     <div className="flex flex-wrap justify-between">
                         <div className="w-full md:basis-1/3 mb-6 md:mb-0 text-start">

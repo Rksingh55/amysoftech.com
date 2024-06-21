@@ -26,7 +26,6 @@ const Navbar = () => {
     return (
         <>
             <div className="bg-white">
-
                 <div className="bg-white flex justify-between py-3 w-[90%] m-auto font-semibold ">
                     <div className="max-sm:hidden flex gap-1">
                         <AiTwotoneMail className="mt-[3px]" /> Email : amysoftech@gmail.com
@@ -61,8 +60,7 @@ const Navbar = () => {
                 </div>
             </div>
             <header className="myheader ">
-                <nav className="navbar navbar-expand-sm  ">
-                    <div className="container">
+                <nav className="navbar navbar-expand-sm  w-[90%] m-auto ">
                         <Link className="navbar-brand" href="/">
                             <img src="/assets/images/FDO_Logo1.svg" alt="Logo" className=" w-[50px]" />
                         </Link>
@@ -125,7 +123,6 @@ const Navbar = () => {
                                 <Language></Language>
                             </div>
                         </div>
-                    </div>
                 </nav>
             </header>
 

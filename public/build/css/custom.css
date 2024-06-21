@@ -293,8 +293,6 @@ body {
 .myheader {
     width: 100%;
     background: #314fc6; 
-    padding: 4px;
-   
 }
 
 .active-header {
@@ -338,9 +336,9 @@ label {
 }
 
 .myheader-complaint {
-    /* position: fixed; */
-    /* z-index: 99; */
-    /* height: 100px; */
+    position: fixed;
+    z-index: 99;
+    height: 100px;
     width: 100%;
     background: #3454d1;
     padding: 18px;
