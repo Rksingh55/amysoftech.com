@@ -209,7 +209,7 @@ function aucktion() {
                 auctionType === 'Reverse' ? (
                   <div>
                     <p className="py-3">
-                      bid Amount  : <span className="font-extrabold">$ {initialCurrentBidAmount2} to $ {lowestbidamount}</span>
+                      Bid Amount  : <span className="font-extrabold">$ {initialCurrentBidAmount2} to $ {lowestbidamount}</span>
                     </p>
                     <p>   Current bid :   <span className="font-extrabold">$ {currentBid2}</span></p>
                   </div>

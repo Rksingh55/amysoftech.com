@@ -58,7 +58,7 @@ const ImageZoom = ({ src, alt }) => {
         height={440}
         alt={alt}
       />
-      <div id="myresult" className="img-zoom-result border absolute"></div>
+      <div id="myresult" className="img-zoom-result border absolute "></div>
     </div>
   );
 };

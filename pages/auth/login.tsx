@@ -36,9 +36,7 @@ const Login = () => {
                 seterror(data.message)
                 if (data.status == 1) {
                     toast.success("Login successfull")
-                    setTimeout(() => {
-                        router.push('/auction/auction-preview')
-                    }, 100)
+                    router.push('/auction/auction-preview')
                     localStorage.setItem('token', JSON.stringify(data.access_token))
                     localStorage.setItem('userName', JSON.stringify(data.name))
                     localStorage.setItem('userEmail', JSON.stringify(data.email))
@@ -64,7 +62,7 @@ const Login = () => {
     };
 
 
-    
+
 
     return (
         <div className=''>
@@ -103,7 +101,7 @@ const Login = () => {
                                         <input type="password" className="form-input ps-10 placeholder:text-white-dark" name="password" placeholder="Enter Password" value={password}
                                             onChange={handleChange}
                                             onFocus={() => setIsPasswordFocused(true)}
-                                           
+
                                             id="Password" />
                                         <span className="absolute start-4 top-1/2 -translate-y-1/2">
                                             <IconLockDots fill={true} />

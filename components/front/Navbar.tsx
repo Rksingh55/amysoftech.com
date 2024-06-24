@@ -7,6 +7,7 @@ import { MdOutlineClose } from "react-icons/md";
 import { CiUser } from "react-icons/ci";
 import { AiTwotoneMail } from "react-icons/ai";
 import { TfiEmail } from "react-icons/tfi";
+import { TbAlignRight } from "react-icons/tb";
 
 
 const Navbar = () => {
@@ -28,14 +29,14 @@ const Navbar = () => {
             <div className="bg-white">
                 <div className="bg-white flex justify-between py-3 w-[90%] m-auto font-semibold ">
                     <div className="max-sm:hidden flex gap-1">
-                        <AiTwotoneMail className="mt-[3px]" /> Email : amysoftech@gmail.com
+                        <AiTwotoneMail className="mt-[3px]" />  {t('Email')}  : {t("amysoftech@gmail.com")}
                     </div>
                     <div className="">
                         <div className="  text-black flex  gap-2  ">
                             <div> {name !== "" ? (
                                 <p className="flex gap-1"> <CiUser className="mt-[2px]" />{name}</p>
                             ) : (
-                                <p>User</p>
+                                <p>{t('User')}</p>
 
                             )}</div>
                             <div className="h-[17px] w-[1px] bg-black"></div>
@@ -43,13 +44,13 @@ const Navbar = () => {
                                 {name !== "" ? (
                                     <Link href="/dashboard/tender">
                                         <button className="  rounded-full hover:text-blue-500">
-                                            Access Bidmate
+                                           {t("Access Bidmate")}
                                         </button>
                                     </Link>
                                 ) : (
                                     <Link href="/auth/login">
                                         <button className="  rounded-full ">
-                                            Login
+                                            {t('Login')}
                                         </button>
                                     </Link>
                                 )}
@@ -64,9 +65,9 @@ const Navbar = () => {
                         <Link className="navbar-brand" href="/">
                             <img src="/assets/images/FDO_Logo1.svg" alt="Logo" className=" w-[50px]" />
                         </Link>
-                        <BsTextLeft className="text-white text-4xl md:hidden" onClick={togglePopup} />
+                        <TbAlignRight  className="text-white text-4xl md:hidden" onClick={togglePopup} />
 
-                        <div className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 ${isOpen ? 'visible' : 'hidden'}`}>
+                        <div className={`fixed z-[999] inset-0 flex items-center justify-center bg-black bg-opacity-50 ${isOpen ? 'visible' : 'hidden'}`}>
                             <div className="bg-white p-6 rounded-md w-[90%] text-center">
                                 <div className=" flex justify-end items-end py-2">
                                     <MdOutlineClose onClick={togglePopup} className="text-2xl " />

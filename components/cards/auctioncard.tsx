@@ -1,8 +1,6 @@
 import React from 'react'
 import { RiAuctionFill } from 'react-icons/ri';
-import { FcCurrencyExchange } from "react-icons/fc";
 import 'react-toastify/dist/ReactToastify.css';
-import Link from 'next/link';
 import Countdown from 'react-countdown';
 import { BiDollarCircle } from 'react-icons/bi';
 import { useRouter } from 'next/router';
@@ -28,6 +26,17 @@ function auctioncard() {
             model: 'Sorento',
             trim: 'LX',
             imageUrl: 'https://img.freepik.com/free-photo/front-wheel-blue-vintage-sedan_114579-6115.jpg?t=st=1717741420~exp=1717745020~hmac=b53eaa336feed7766426dc6aff1652050268631ae989938fae6083ce004fe34e&w=900',
+            currentBid: 876.00,
+            bids: 30,
+            buyNow: 50000,
+            AuctionType: 'Reverse',
+        },
+        {
+            year: 2014,
+            make: 'KIA',
+            model: 'Sorento',
+            trim: 'LX',
+            imageUrl: 'https://d3nn873nee648n.cloudfront.net/900x600/20487/300-PK1047952.jpg',
             currentBid: 876.00,
             bids: 30,
             buyNow: 50000,

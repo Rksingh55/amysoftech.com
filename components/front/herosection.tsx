@@ -35,17 +35,17 @@ export default function Home() {
 
             {/* ----hersection----- */}
             <div className=" bg-gradient-to-b  from-blue-400 to-purple-300 text-white min-h-screen flex flex-col gap-5 md:flex-row items-center justify-center  ">
-                <div className="  p-4  basis-1/2    text-center herosectionbg"  >
-                    <p className='py-2'>Welcome To FDO Bidmate Auction House</p>
+                <div className="  p-4  basis-1/2    text-center herosectionbg max-sm:mt-[-50px]"  >
+                    <p className='py-2'>{t('Welcome To FDO Bidmate Auction House')}</p>
                     <h1 className="text-3xl md:text-6xl font-bold mb-4">
-                        {t('Build, Sell & Collect Digital items.')}
+                        {t('Build, Sell & Collect Digital items')}
                     </h1>
                     <p className="mb-6 text-lg md:text-xl">
-                        {t(' The services will provide safe, efficient, economically andenvironmentally sustainable services in innovative ways to Conserve the Environment of Our Beautiful Oman for Future Generations')}
+                        {t('The services will provide safe, efficient, economically andenvironmentally sustainable services in innovative ways to Conserve the Environment of Our Beautiful Oman for Future Generations')}
                     </p>
-                    <Link href="/dashboard/tender">
+                    <Link href="/auth/login">
                         <button className="bg-white text-blue-500 font-semibold py-[12px] px-10 rounded-full mb-6">
-                            Start Exploring
+                          {t('Start Exploring')}
                         </button>
                     </Link>
                 </div>
@@ -61,7 +61,7 @@ export default function Home() {
                         {t('Live Auction')}
                     </h1>
                     <p className="mb-6  md:text-lg ">
-                        {t(' Explore on the world s best & largest Bidding marketplace with our beauty Bidding products. We want to be a part of your smile, success and future growth.')}
+                        {t('Explore on the world s best & largest Bidding marketplace with our beauty Bidding products. We want to be a part of your smile, success and future growth')}
                     </p>
                 </div>
                 <div className='w-[90%] m-auto '>
@@ -79,7 +79,7 @@ export default function Home() {
                         {t('Upcoming Auction')}
                     </h1>
                     <p className="mb-6  md:text-lg ">
-                        {t(' Get ready for our next big event! Our upcoming auction promises to bring you an array of exclusive and high-quality bidding products. ')}
+                        {t('Get ready for our next big event! Our upcoming auction promises to bring you an array of exclusive and high-quality bidding products')}
                     </p>
                 </div>
                 <div className='w-[90%] m-auto  flex gap-3 md:flex-row flex-col items-center'>
@@ -93,18 +93,18 @@ export default function Home() {
                         <div
                             className="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-32 -right-16 w-36 h-44 rounded-full bg-purple-300 transition-all duration-500 font-bold"
                         >
-                            Ford Shelby White Car
+                            {t("Ford Shelby White Car")}
                         </div>
                         <div className="w-full text-white h-full items-center justify-center flex gap-2 flex-col ">
-                            <div className='flex justify-center items-center gap-2'> <div className='w-[50px] h-[1px] bg-white'></div>  <p>Upcoming Auction</p>  <div className='w-[50px] h-[1px] bg-white'></div></div>
-                            <h1 className='uppercase text-xl font-bold '> This Product Coming in Next Month.</h1>
+                            <div className='flex justify-center items-center gap-2'> <div className='w-[50px] h-[1px] bg-white'></div>  <p>  {t('Upcoming Auction')}</p>  <div className='w-[50px] h-[1px] bg-white'></div></div>
+                            <h1 className='uppercase text-xl font-bold '> {t('This Product Coming in Next Month')}</h1>
                             <div className='flex gap-2 font-bold text-black'>
                                 <div className='bg-white px-3 py-2'>00</div>
                                 <div className='bg-white px-3 py-2'>00</div>
                                 <div className='bg-white px-3 py-2'>00</div>
                                 <div className='bg-white px-3 py-2'>00</div>
                             </div>
-                            <button className='bg-black p-2 text-sm mt-2 px-4  '>Get Ready </button>
+                            <button className='bg-black p-2 text-sm mt-2 px-4  '>{t("Get Ready")} </button>
                         </div>
                     </div>
 
@@ -119,18 +119,18 @@ export default function Home() {
                         <div
                             className="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-32 -right-16 w-36 h-44 rounded-full bg-green-300 transition-all duration-500 font-bold"
                         >
-                            Ford Shelby White Car
+                                 {t("Ford Shelby White Car")}
                         </div>
                         <div className="w-full text-white h-full items-center justify-center flex gap-2 flex-col ">
-                            <div className='flex justify-center items-center gap-2'> <div className='w-[50px] h-[1px] bg-white'></div>  <p>Upcoming Auction</p>  <div className='w-[50px] h-[1px] bg-white'></div></div>
-                            <h1 className='uppercase text-xl font-bold mx-sm:text-center'> This Product Coming in Next Week.</h1>
+                            <div className='flex justify-center items-center gap-2'> <div className='w-[50px] h-[1px] bg-white'></div>  <p>{t('Upcoming Auction')}</p>  <div className='w-[50px] h-[1px] bg-white'></div></div>
+                            <h1 className='uppercase text-xl font-bold mx-sm:text-center'> {t('This Product Coming in Next Month')}</h1>
                             <div className='flex gap-2 font-bold text-black'>
                                 <div className='bg-white px-3 py-2'>00</div>
                                 <div className='bg-white px-3 py-2'>00</div>
                                 <div className='bg-white px-3 py-2'>00</div>
                                 <div className='bg-white px-3 py-2'>00</div>
                             </div>
-                            <button className='bg-black p-2 text-sm mt-2 px-4  '>Get Ready </button>
+                            <button className='bg-black p-2 text-sm mt-2 px-4  '>{t("Get Ready")} </button>
                         </div>
                     </div>
                 </div>

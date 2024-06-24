@@ -40,12 +40,12 @@ const Task = () => {
                     <div className="display-tasks">
                         <h3>Your tasks:</h3>
                         <ul className="tasks">
-                            {tasks.map((task) => (
+                            {tasks?.map((task) => (
                                 <li className="task" key={task.id}>
-                                    {task.text}
+                                    {task?.text}
                                     <button
                                         className="delete-btn bg-red-300"
-                                        onClick={() => handleDelete(task.id)}
+                                        onClick={() => handleDelete(task?.id)}
                                     >
                                         delete
                                     </button>
