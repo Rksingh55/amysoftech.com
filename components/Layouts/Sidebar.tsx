@@ -120,7 +120,7 @@ const Sidebar = () => {
 
                             <li className="nav-item">
                                 <ul>
-                                    
+
                                     <li className="nav-item">
                                         <Link href="/dashboard/tender" className="nav-link sv-nav text-light">
                                             <div className="flex items-center">
@@ -128,6 +128,34 @@ const Sidebar = () => {
                                                 <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{t('Dashboard')}</span>
                                             </div>
                                         </Link>
+                                    </li>
+
+
+
+                                    <li className="menu nav-item">
+                                        <button type="button" className={`${currentMenu === 'dashboard' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('dashboard')}>
+                                            <div className="flex items-center">
+                                                <RiAuctionFill className="shrink-0 group-hover:!text-primary" />
+                                                <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{t('Auction')}</span>
+                                            </div>
+
+                                            <div className={currentMenu !== 'dashboard' ? '-rotate-90 rtl:rotate-90' : ''}>
+                                                <IconCaretDown />
+                                            </div>
+                                        </button>
+
+                                        <AnimateHeight duration={300} height={currentMenu === 'dashboard' ? 'auto' : 0}>
+                                            <ul className="sub-menu text-gray-500 bg-white">
+                                                <li>
+                                                    <Link href="/dashboard/auction">{t('Auction')}</Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/dashboard/auction/auction-list">{t('Auction list')}</Link>
+                                                </li>
+
+
+                                            </ul>
+                                        </AnimateHeight>
                                     </li>
 
                                     {/* <li className="nav-item">
@@ -140,14 +168,14 @@ const Sidebar = () => {
                                     </li> */}
 
 
-                                    <li className="nav-item">
+                                    {/* <li className="nav-item">
                                         <Link href="/dashboard/auction" className="nav-link sv-nav text-light">
                                             <div className="flex items-center">
                                                 <RiAuctionFill className="shrink-0 group-hover:!text-primary" />
                                                 <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{t('Auction')}</span>
                                             </div>
                                         </Link>
-                                    </li>
+                                    </li> */}
 
 
 
@@ -189,42 +217,13 @@ const Sidebar = () => {
                                     <li className="nav-item">
                                         <Link href="/dashboard/vendor/vendor-list" className="nav-link sv-nav text-light">
                                             <div className="flex items-center">
-                                                <LuLayoutList  className="shrink-0 group-hover:!text-primary" />
+                                                <LuLayoutList className="shrink-0 group-hover:!text-primary" />
                                                 <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{t('Vendors List')}</span>
                                             </div>
                                         </Link>
                                     </li>
 
-                                    <li className="menu nav-item">
-                                        <button type="button" className={`${currentMenu === 'dashboard' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('dashboard')}>
-                                            <div className="flex items-center">
-                                                <VscGitPullRequestGoToChanges className="shrink-0 group-hover:!text-primary" />
-                                                <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{t('Vendor Request')}</span>
-                                            </div>
-
-                                            <div className={currentMenu !== 'dashboard' ? '-rotate-90 rtl:rotate-90' : ''}>
-                                                <IconCaretDown />
-                                            </div>
-                                        </button>
-
-                                        <AnimateHeight duration={300} height={currentMenu === 'dashboard' ? 'auto' : 0}>
-                                            <ul className="sub-menu text-gray-500 bg-white">
-                                                <li>
-                                                    <Link href="/dashboard/vendor/vendor-list">{t('Vendor List')}</Link>
-                                                </li>
-                                                <li>
-                                                    <Link href="/dashboard/vendor/approve-vendors">{t('Approved Vendors')}</Link>
-                                                </li>
-                                                <li>
-                                                    <Link href="/dashboard/vendor/pending-vendors">{t('Pending Vendors')}</Link>
-                                                </li>
-                                                <li>
-                                                    <Link href="/dashboard/vendor/rejected-vendors">{t('Rejected Vendors')}</Link>
-                                                </li>
-
-                                            </ul>
-                                        </AnimateHeight>
-                                    </li>
+                          
                                     <li className="nav-item">
                                         <Link href="/dashboard/grn" className="nav-link sv-nav text-light">
                                             <div className="flex items-center">
@@ -250,7 +249,7 @@ const Sidebar = () => {
                                             </div>
                                         </Link>
                                     </li>
-                                   
+
 
 
 
@@ -259,7 +258,7 @@ const Sidebar = () => {
                                 </ul>
                             </li>
 
-                           
+
                         </ul>
                     </PerfectScrollbar>
                 </div>

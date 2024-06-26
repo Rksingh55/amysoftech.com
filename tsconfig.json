@@ -19,6 +19,6 @@
             "@/*": ["./*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/apps/todolist.tsx", "components/Tablayout.jsx", "components/front/Pageheader.jsx", "pages/auction/index.tsx", "pages/auction/auction-preview/index.tsx", "Reducer/testSlice.jsx", "components/NextBreadcrumb.tsx", "pages/dashboard/vendor/vendor-list/index.tsx", "components/dashboardbredcrumb.tsx", "components/front/producttypecard.jsx", "components/ImageZoom.jsx"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/apps/todolist.tsx", "components/Tablayout.jsx", "components/front/Pageheader.jsx", "pages/auction/index.tsx", "pages/auction/auction-preview/index.tsx", "Reducer/testSlice.jsx", "components/NextBreadcrumb.tsx", "pages/dashboard/vendor/vendor-list/index.tsx", "components/dashboardbredcrumb.tsx", "components/front/producttypecard.jsx", "components/ImageZoom.jsx", "components/cards/auctioncard.tsx", "pages/interest/cards/index.jsx", "Reducer/clickedCardsSlice.jsx", "pages/dashboard/auction/auction-list.jsx"],
     "exclude": ["node_modules"]
 }

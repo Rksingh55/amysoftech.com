@@ -15,7 +15,6 @@ function Tenders() {
           <h1 className='text-2xl font-bold'> RFI Lists</h1>
           <input type='search' className='border-2 rounded-full py-2 px-12' placeholder='Search here..' />
         </div>
-        {/* ----Rfi card------- */}
         <Rficard />
       </div>
 

@@ -6,7 +6,9 @@ function tendercard() {
         {}, {}, {}, {}, {}, {}, {}
     ]
     return (
-        <div> {
+        <div>
+            
+             {
             tender?.map((index:any) => (
                 <div key={index} className='  mt-2   border-2 rounded-md  bg-white   '>
                     <div className=' md:p-9 p-3 rounded-md hover:shadow-md'>

@@ -44,10 +44,10 @@ const Header = () => {
                 padding: '2em',
                 customClass: 'sweet-alerts',
             }).then((result) => {
-
                 if (result.value) {
                     // Swal.fire({ title: 'Log Out!', text: 'You are successfully logout.', icon: 'success', customClass: 'sweet-alerts' });
                     localStorage.removeItem("userName")
+                    localStorage.removeItem("token")
                     setTimeout(() => {
                         router.push("/")
                     }, 1000)

@@ -153,9 +153,8 @@
   }
 }
 
-
-
 .img-zoom-container {
+  cursor: crosshair;
   position: relative;
 }
 
@@ -166,11 +165,15 @@
   width: 60px;
   height: 60px;
   cursor: pointer;
+  display: none; 
+  
 }
 
 .img-zoom-result {
   width: 497px;
   height: 300px;
+  margin-top: 5px;
+  display: none; 
 }
 
 @media screen and (max-width: 1200px) {
@@ -178,6 +181,6 @@
     display: none;
   }
   .img-zoom-result {
-   display: none;
+    display: none;
   }
 }

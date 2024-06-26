@@ -25,7 +25,7 @@ export default function Home() {
     const [name, setName] = useState(u_name ?? "");
 
 
-  
+
 
 
 
@@ -45,7 +45,7 @@ export default function Home() {
                     </p>
                     <Link href="/auth/login">
                         <button className="bg-white text-blue-500 font-semibold py-[12px] px-10 rounded-full mb-6">
-                          {t('Start Exploring')}
+                            {t('Start Exploring')}
                         </button>
                     </Link>
                 </div>
@@ -57,7 +57,7 @@ export default function Home() {
             {/* ------live auction card-------- */}
             <div className=' py-[30px]' >
                 <div className=" p-3 md:w-[45%] m-auto  text-center md:text-3xl  ">
-                    <h1 className=" font-bold mb-2">
+                    <h1 className=" font-bold mb-2 max-sm:text-2xl">
                         {t('Live Auction')}
                     </h1>
                     <p className="mb-6  md:text-lg ">
@@ -65,9 +65,7 @@ export default function Home() {
                     </p>
                 </div>
                 <div className='w-[90%] m-auto '>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-                        <AuctionCard />
-                    </div>
+                    <AuctionCard />
                 </div>
             </div>
 
@@ -75,7 +73,7 @@ export default function Home() {
 
             <div className=' py-[30px]' >
                 <div className=" p-3 md:w-[45%] m-auto  text-center md:text-3xl  ">
-                    <h1 className=" font-bold mb-2">
+                    <h1 className=" font-bold mb-2 max-sm:text-2xl">
                         {t('Upcoming Auction')}
                     </h1>
                     <p className="mb-6  md:text-lg ">
@@ -119,7 +117,7 @@ export default function Home() {
                         <div
                             className="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-32 -right-16 w-36 h-44 rounded-full bg-green-300 transition-all duration-500 font-bold"
                         >
-                                 {t("Ford Shelby White Car")}
+                            {t("Ford Shelby White Car")}
                         </div>
                         <div className="w-full text-white h-full items-center justify-center flex gap-2 flex-col ">
                             <div className='flex justify-center items-center gap-2'> <div className='w-[50px] h-[1px] bg-white'></div>  <p>{t('Upcoming Auction')}</p>  <div className='w-[50px] h-[1px] bg-white'></div></div>

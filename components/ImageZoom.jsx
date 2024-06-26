@@ -19,6 +19,14 @@ const ImageZoom = ({ src, alt }) => {
       lens.addEventListener('touchmove', moveLens);
       img.addEventListener('touchmove', moveLens);
 
+      img.addEventListener('mouseenter', () => {
+        result.style.display = 'block';
+      });
+
+      img.addEventListener('mouseleave', () => {
+        result.style.display = 'none';
+      });
+
       function moveLens(e) {
         let pos, x, y;
         e.preventDefault();
@@ -41,7 +49,7 @@ const ImageZoom = ({ src, alt }) => {
         x = e.pageX - a.left;
         y = e.pageY - a.top;
         x -= window.scrollX;
-        y -= window.pageYOffset;
+        y -= window.scrollY;
         return { x, y };
       }
     };
@@ -50,7 +58,7 @@ const ImageZoom = ({ src, alt }) => {
   }, []);
 
   return (
-    <div className="img-zoom-container relative ">
+    <div className="img-zoom-container relative">
       <Image
         id="myimage"
         src={src}
@@ -58,7 +66,7 @@ const ImageZoom = ({ src, alt }) => {
         height={440}
         alt={alt}
       />
-      <div id="myresult" className="img-zoom-result border absolute "></div>
+      <div id="myresult" className="img-zoom-result border absolute"></div>
     </div>
   );
 };

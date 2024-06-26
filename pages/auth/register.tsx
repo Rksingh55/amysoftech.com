@@ -188,7 +188,7 @@ const RegisterCover = () => {
                                     </Link>
                                 </div>
                             </div>
-                            <p className="absolute bottom-6  text-center dark:text-white w-[80%]">© {new Date().getFullYear()}. FDO Bidmate All rights reserved. Powered by AMY Softech.</p>
+                            <p className="absolute bottom-6  text-center dark:text-white w-[80%]">© {new Date().getFullYear()}. FDO  All rights reserved. Powered by AMY Softech.</p>
                         </div>
                     </div>
                 </div>

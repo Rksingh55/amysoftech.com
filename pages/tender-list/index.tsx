@@ -1,12 +1,7 @@
 import Frontheader from '@/components/front/Navbar'
 import React from 'react'
-import { FaLocationDot } from 'react-icons/fa6'
-import { SlCalender } from "react-icons/sl";
-import Link from 'next/link';
 import Header from '@/components/front/Pageheader';
 import BlankLayout from '@/components/Layouts/BlankLayout';
-import { FaSortDown } from 'react-icons/fa';
-import { HiMiniArrowLongRight } from 'react-icons/hi2';
 import Tendercard from '@/components/cards/tendercard';
 import Footer from '@/components/Layouts/Footer';
 function Tenders() {

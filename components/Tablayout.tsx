@@ -29,31 +29,31 @@ const Tabs: React.FC = () => {
       content:
         <div className=''>
           <table className=' rounded-md  bg-white mt-2 max-sm:text-[10px] '>
-           <thead>
-           <tr className=' bg-[#F4F7FF] text-black '>
-              <th className='p-2'>Date</th>
-              <th className='p-2'>Bid</th>
-              <th className='p-2'>User</th>
-            
-            </tr>
-           </thead>
-          <tbody>
-          <tr>
-              <td className='p-2'>07/06/2024</td>
-              <td className='p-2'>732872.0 $</td>
-              <td className='p-2'>Lab@gmail.com</td>
-            </tr>
-            <tr>
-              <td className='p-2'>07/06/2024</td>
-              <td className='p-2'>732872.0 $</td>
-              <td className='p-2'>Lab@gmail.com</td>
-            </tr>
-            <tr>
-              <td className='p-2'>07/06/2024</td>
-              <td className='p-2'>732872.0 $</td>
-              <td className='p-2'>Lab@gmail.com</td>
-            </tr>
-          </tbody>
+            <thead>
+              <tr className=' bg-[#F4F7FF] text-black '>
+                <th className='p-2'>Date</th>
+                <th className='p-2'>Bid</th>
+                <th className='p-2'>User</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className='p-2'>07/06/2024</td>
+                <td className='p-2'>732872.0 $</td>
+                <td className='p-2'>Lab@gmail.com</td>
+              </tr>
+              <tr>
+                <td className='p-2'>07/06/2024</td>
+                <td className='p-2'>732872.0 $</td>
+                <td className='p-2'>Lab@gmail.com</td>
+              </tr>
+              <tr>
+                <td className='p-2'>07/06/2024</td>
+                <td className='p-2'>732872.0 $</td>
+                <td className='p-2'>Lab@gmail.com</td>
+              </tr>
+            </tbody>
           </table>
         </div>
     },
@@ -62,10 +62,10 @@ const Tabs: React.FC = () => {
         <div>
           <h1 className='text-2xl py-2'>Total Reviews (100)</h1>
           {
-            Review?.map((index:any) => (
+            Review?.map((index: any) => (
               <div key={index} className='flex gap-3 mt-10'>
                 <div className=''>
-                  <img className='bg-red-200 h-[100px] w-[100px] object-cover rounded-full' src='https://img.freepik.com/free-photo/close-up-young-successful-man-smiling-camera-standing-casual-outfit-against-blue-background_1258-65746.jpg?t=st=1718003155~exp=1718006755~hmac=daade446d4efc8d07e9f2f98cc65dd89324f158e169257f69cc6a01c4397851a&w=900' />
+                  <img className=' h-[100px] w-[100px] object-cover rounded-full' src='https://img.freepik.com/free-photo/close-up-young-successful-man-smiling-camera-standing-casual-outfit-against-blue-background_1258-65746.jpg?t=st=1718003155~exp=1718006755~hmac=daade446d4efc8d07e9f2f98cc65dd89324f158e169257f69cc6a01c4397851a&w=900' />
 
                 </div>
                 <div className='w-[60%]'>
@@ -103,8 +103,8 @@ const Tabs: React.FC = () => {
                   <FaStar className='text-yellow-500' />
                   <FaStar className='text-yellow-500' />
                   <FaStar className='text-yellow-500' />
-                <FaStarHalfAlt className='text-yellow-500' />
-                  </div>
+                  <FaStarHalfAlt className='text-yellow-500' />
+                </div>
                 <br />
                 <div className="inline-block relative w-64">
                   <select className="block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded leading-tight focus:outline-none ">
@@ -130,7 +130,7 @@ const Tabs: React.FC = () => {
           </div>
         </div>
     },
-   
+
 
   ];
 

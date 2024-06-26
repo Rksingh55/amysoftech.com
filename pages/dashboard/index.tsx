@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/router'
 import { useDispatch } from "react-redux";
 export default function Dashboard() {
+  
   const router = useRouter()
   useEffect(() => {
     if (!localStorage.getItem('token')) {
-      router.push('/login')
+      router.push('auth/login')
     }
   }, []);
 
@@ -15,10 +16,8 @@ export default function Dashboard() {
   useEffect(() => {
     const u_name = localStorage.getItem("userName");
     const u_email = localStorage.getItem("userEmail");
-
     setName(u_name ?? "");
     setEmail(u_email ?? "");
-
 
   }, []);
 

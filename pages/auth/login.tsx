@@ -36,7 +36,7 @@ const Login = () => {
                 seterror(data.message)
                 if (data.status == 1) {
                     toast.success("Login successfull")
-                    router.push('/auction/auction-preview')
+                    router.push('/dashboard/auction/auction-list')
                     localStorage.setItem('token', JSON.stringify(data.access_token))
                     localStorage.setItem('userName', JSON.stringify(data.name))
                     localStorage.setItem('userEmail', JSON.stringify(data.email))

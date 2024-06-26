@@ -120,7 +120,7 @@ function aucktion() {
 
 
   const Decrement2 = () => {
-    if (value2 > lowestbidamount ) {
+    if (value2 > lowestbidamount) {
       setvalue2(prevValue => prevValue - minimumDecrement);
     }
     else {
@@ -157,7 +157,8 @@ function aucktion() {
       <div className='w-[90%] m-auto '>
         <div className='flex gap-4 md:flex-row flex-col  mt-5'>
           <div className='md:basis-[40%] w-full '>
-            <ImageZoom src="https://d3nn873nee648n.cloudfront.net/1200x1800-new/20616/PT1063827.jpg" alt="Product Image" />
+            <img src='https://d3nn873nee648n.cloudfront.net/1200x1800-new/20616/PT1063827.jpg' />
+            {/* <ImageZoom src="https://d3nn873nee648n.cloudfront.net/1200x1800-new/20616/PT1063827.jpg" alt="Product Image" /> */}
           </div>
           <div className='md:basis-[60%] w-full flex flex-col gap-2 '>
             <div className=' md:px-4 '>
@@ -168,11 +169,10 @@ function aucktion() {
                 <FaStar className='text-yellow-500' />
                 <FaStar className='text-yellow-500' />
                 <FaStarHalfAlt className='text-yellow-500' />
-
               </div>
               <p className=' py-2'>Korem ipsum dolor amet, consectetur adipiscing elit. Maece nas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla....</p>
               <p className='font-bold cursor-pointer hover:text-blue-400 hover:underline' onClick={handleScroll}>Read Description </p>
-              <p className=' py-2'>ITEM CONDITION : NEW</p>
+              <p className=' py-2 font-semibold'>ITEM CONDITION : NEW</p>
               <p className=' py-2 font-bold text-blue-400'>Time Left -</p>
 
               {/* --------time left code -------- */}
