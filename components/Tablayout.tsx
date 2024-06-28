@@ -14,14 +14,38 @@ const Tabs: React.FC = () => {
 
   const tabs: Tab[] = [
     {
-      title: 'Description',
+      title: 'Your bidding history',
       content:
-        <div>
-          <h1 className='font-bold md:text-2xl text-xl py-2'>Description</h1>
-          <h1 className='font-bold md:text-xl text-md py-2'>How can have anything you ant in life if you ?</h1>
-          <p className=' text-justify'>If you’ve been following the crypto space, you’ve likely heard of Non-Fungible Tokens (Biddings), more popularly referred to as ‘Crypto Collectibles.’ The world of Biddings is growing rapidly. It seems there is no slowing down of these assets as they continue to go up in price. This growth comes with the opportunity for people to start new businesses to create and capture value. The market is open for players in every kind of field. Are you a collector.</p><br />
-          <p className=' text-justify'>But getting your own auction site up and running has always required learning complex coding langua ges, or hiring an expensive design firm for thousands of dollars and months of work.</p>
-          <p className=' text-justify'>Amet consectetur adipisicing elit. Maxime reprehenderit quaerat, velit rem atque vel impedit! Expensive Design.</p>
+        <div className=''>
+          <table className=' rounded-md  bg-white mt-2 max-sm:text-[10px] '>
+            <thead>
+              <tr className=' bg-[#F4F7FF] text-black '>
+                <th className='p-2'>Date</th>
+                <th className='p-2'>Bid Amount</th>
+                <th className='p-2'>Status</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className='p-2'>07/06/2024</td>
+                <td className='p-2'>732872.0 $</td>
+                <td className='p-2'>Pending</td>
+              </tr>
+              <tr>
+                <td className='p-2'>07/06/2024</td>
+                <td className='p-2'>732872.0 $</td>
+                <td className='p-2'>Failed</td>
+
+              </tr>
+              <tr>
+                <td className='p-2'>07/06/2024</td>
+                <td className='p-2'>732872.0 $</td>
+                <td className='p-2'>Success</td>
+
+              </tr>
+            </tbody>
+          </table>
         </div>
     },
     {
@@ -150,7 +174,7 @@ const Tabs: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="p-4 bg-white rounded-md shadow-md mt-2">
+      <div className="p-4 bg-white rounded-md  mt-2">
         {tabs[activeTab]?.content}
       </div>
     </div>

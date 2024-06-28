@@ -21,11 +21,12 @@ const RegisterCover = () => {
     const router = useRouter();
     const [message, setmessege] = useState("")
     const [user, setuser] = useState({
-        organization: "",
+        org_name: "",
         name: "",
         email: "",
         number: "",
-        adress: "",
+        password: "",
+        cr_number :" ",
     });
     console.log("userdata", user)
 
@@ -36,12 +37,42 @@ const RegisterCover = () => {
 
     const submitForm = (e: any) => {
         e.preventDefault();
-        if (user !== null) {
-            setmessege("Please fill all the required fields ")
-        }
-        console.log("user", user)
-        // router.push('/');
+        fetch(`https://fdo-bidmate.kefify.com/api/register`, {
+            method: "POST",
+            headers: {  
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        })
+
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("response----", data)
+                if (data.status == "success") {
+                    console.log("Login successfull")
+                    router.push('/')
+                    localStorage.setItem('token', JSON.stringify(data.authorisation.token))
+                    localStorage.setItem('userName', JSON.stringify(data.user.name))
+                    localStorage.setItem('userEmail', JSON.stringify(data.user.email))
+
+                }
+                else {
+                    console.log("Please enter correct email & password")
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
     };
+
+    // const submitForm = (e: any) => {
+    //     e.preventDefault();
+    //     if (user !== null) {
+    //         setmessege("Please fill all the required fields ")
+    //     }
+    //     console.log("user", user)
+    //     // router.push('/');
+    // };
 
     const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
 
@@ -131,7 +162,16 @@ const RegisterCover = () => {
                                     <div>
                                         <label htmlFor="Name">Organization  Name</label>
                                         <div className="relative text-white-dark">
-                                            <input onChange={(e) => setuser({ ...user, organization: e.target.value })} id="Name" type="text" placeholder="Enter Organization  Name" className="form-input ps-10 placeholder:text-white-dark" />
+                                            <input onChange={(e) => setuser({ ...user, org_name: e.target.value })} id="Name" type="text" placeholder="Enter Organization  Name" className="form-input ps-10 placeholder:text-white-dark" />
+                                            <span className="absolute start-4 top-1/2 -translate-y-1/2">
+                                                <GrOrganization />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="Name">Cr Number</label>
+                                        <div className="relative text-white-dark">
+                                            <input onChange={(e) => setuser({ ...user, cr_number: e.target.value })} id="Name" type="text" placeholder="Enter cr  Number" className="form-input ps-10 placeholder:text-white-dark" />
                                             <span className="absolute start-4 top-1/2 -translate-y-1/2">
                                                 <GrOrganization />
                                             </span>
@@ -165,11 +205,12 @@ const RegisterCover = () => {
                                                 </span>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                     <div>
-                                        <label >Adress</label>
+                                        <label >Password</label>
                                         <div className="relative text-white-dark">
-                                            <input onChange={(e) => setuser({ ...user, adress: e.target.value })} type="text" placeholder="Enter Adress" className="form-input ps-10 placeholder:text-white-dark" />
+                                            <input onChange={(e) => setuser({ ...user, password: e.target.value })} type="number" placeholder="Enter password" className="form-input ps-10 placeholder:text-white-dark" />
                                             <span className="absolute start-4 top-1/2 -translate-y-1/2">
                                                 <AiTwotoneHome />
                                             </span>

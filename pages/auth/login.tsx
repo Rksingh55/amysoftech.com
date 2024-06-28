@@ -23,7 +23,7 @@ const Login = () => {
             seterror("Validating please wait...!!")
         }
         const data = { email, password };
-        fetch(`https://api.kefify.com/api/login`, {
+        fetch(`https://fdo-bidmate.kefify.com/api/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -34,12 +34,13 @@ const Login = () => {
             .then((response) => response.json())
             .then((data) => {
                 seterror(data.message)
-                if (data.status == 1) {
+                console.log("l----",data)
+                if (data.status == "success") {
                     toast.success("Login successfull")
-                    router.push('/dashboard/auction/auction-list')
-                    localStorage.setItem('token', JSON.stringify(data.access_token))
-                    localStorage.setItem('userName', JSON.stringify(data.name))
-                    localStorage.setItem('userEmail', JSON.stringify(data.email))
+                    router.push('/')
+                    localStorage.setItem('token', JSON.stringify(data.authorisation.token))
+                    localStorage.setItem('userName', JSON.stringify(data.user.name))
+                    localStorage.setItem('userEmail', JSON.stringify(data.user.email))
                     setemail('');
                     setpassword('');
                 }

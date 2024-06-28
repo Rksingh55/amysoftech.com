@@ -15,10 +15,13 @@ import Frontheader from '@/components/front/Navbar';
 import { useRouter } from 'next/router';
 import Footer from '@/components/Layouts/Footer';
 import ImageZoom from '@/components/ImageZoom';
+import Swal from 'sweetalert2';
+
 
 function aucktion() {
   const router = useRouter();
   const auctionType = router.query.auctionType;
+  const [autoMode, setAutoMode] = useState(false);
 
   const targetDate = '2024-10-22T23:59:59';
   const [isClient, setIsClient] = useState(false);
@@ -27,24 +30,47 @@ function aucktion() {
     setIsClient(true);
   }, []);
 
-  const initialCurrentBidAmount = 600;
-  const minimumIncrement = 50;
+  const [autoBidAmount, setAutobidAmount] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState<string>("");
 
-  const [currentBid, setCurrentBid] = useState(initialCurrentBidAmount);
-  const [value, setValue] = useState(initialCurrentBidAmount + minimumIncrement);
-  const [autoMode, setAutoMode] = useState(false);
+  const handleSetbidamount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
 
-  useEffect(() => {
-    setValue(currentBid + minimumIncrement);
-  }, [currentBid]);
-
-  const Decrement = () => {
-    if (value > currentBid + minimumIncrement) {
-      setValue(prevValue => prevValue - minimumIncrement);
+  const handleSetClick = () => {
+    if (inputValue.trim() === "") {
+      toast.error("Please set amount!!");
+      setAutoMode(false);
     } else {
-      toast.error('Bid amount cannot be less than the current bid amount');
+      const amount = parseFloat(inputValue.trim());
+      setAutobidAmount(amount);
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setAutoMode(true);
+      }, 3000);
     }
   };
+
+  console.log("l--------", autoBidAmount)
+
+  const initialCurrentBidAmount = 600;
+  const Incrementvalue = 200;
+  const [currentBid, setCurrentBid] = useState(initialCurrentBidAmount);
+  const [value, setValue] = useState(initialCurrentBidAmount + Incrementvalue);
+
+  useEffect(() => {
+    setValue(currentBid + Incrementvalue);
+  }, [currentBid]);
+
+  // const Decrement = () => {
+  //   if (value > currentBid + autoBidAmount) {
+  //     setValue((prevValue: number) => prevValue - autoBidAmount);
+  //   } else {
+  //     toast.error('Bid amount cannot be less than the current bid amount');
+  //   }
+  // };
 
   let u_name = "";
   useEffect(() => {
@@ -74,18 +100,18 @@ function aucktion() {
   useEffect(() => {
     if (autoMode) {
       const timer = setInterval(() => {
-        setValue(prevValue => {
-          const newBid = prevValue + minimumIncrement;
+        setValue((prevValue: number) => {
+          const newBid = prevValue + autoBidAmount;
           handleAutoBidSubmit(newBid);
           return newBid;
         });
-      }, 6000);
+      }, 3000);
       return () => clearInterval(timer);
     }
   }, [autoMode]);
 
   const Increment = () => {
-    setValue(prevValue => prevValue + minimumIncrement);
+    setValue((prevValue: number) => prevValue + Incrementvalue);
   };
 
   const handleAutoBidSubmit = (newBid: number) => {
@@ -143,14 +169,20 @@ function aucktion() {
     } else {
       toast.error('Bid amount must be lowest than the current bid');
     }
+  };
 
 
 
+  const [open, setOpen] = useState(false);
+  const openInput = () => {
+    setOpen(true);
   };
 
 
   return (
     <>
+
+
       <ToastContainer />
       <Frontheader />
       <Header heading="Auction Preview" />
@@ -163,6 +195,7 @@ function aucktion() {
           <div className='md:basis-[60%] w-full flex flex-col gap-2 '>
             <div className=' md:px-4 '>
               <h1 className='md:text-3xl text-xl font-bold'>2014 KIA Sorento</h1>
+
               <div className='flex gap-1 py-3'>
                 <FaStar className='text-yellow-500' />
                 <FaStar className='text-yellow-500' />
@@ -173,6 +206,8 @@ function aucktion() {
               <p className=' py-2'>Korem ipsum dolor amet, consectetur adipiscing elit. Maece nas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla....</p>
               <p className='font-bold cursor-pointer hover:text-blue-400 hover:underline' onClick={handleScroll}>Read Description </p>
               <p className=' py-2 font-semibold'>ITEM CONDITION : NEW</p>
+              <p className=' py-2'>Timezone : UTC 0</p>
+
               <p className=' py-2 font-bold text-blue-400'>Time Left -</p>
 
               {/* --------time left code -------- */}
@@ -203,7 +238,6 @@ function aucktion() {
                   </div>
                 </div>
               </div>
-              <p className=' py-2'>Timezone : UTC 0</p>
               <p className='py-2'> Auction Type : <span className='bg-yellow-300 py-1 px-3'> {auctionType}  </span ></p>
               {
                 auctionType === 'Reverse' ? (
@@ -219,6 +253,8 @@ function aucktion() {
                   </p>
                 )
               }
+
+              {autoMode && <p className="py-1">Auto-bidding started with amount: {autoBidAmount}</p>}
 
 
 
@@ -242,34 +278,71 @@ function aucktion() {
                 ) : (
                   <div>
                     <div className='flex gap-4  py-3'>
-                      <button onClick={() => setAutoMode(false)} className={`px-4 py-2 ${!autoMode ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
+                      <button onClick={() => {
+                        setAutoMode(false);
+                        setOpen(false);
+                      }} className={`px-4 py-2 ${!open ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
                         Manual
                       </button>
-                      <button onClick={() => setAutoMode(true)} className={`px-4 py-2 ${autoMode ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
-                        Auto
+                      <button
+                        type="button"
+                        className={`px-4 py-2 ${open ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                        onClick={openInput}
+                      >
+                        Auto Bidding
                       </button>
                     </div>
-                    <h2 className='py-2 text-red-600'>Your bid amount  :  <span className='font-extrabold'> $ {value} </span></h2>
+                    {open &&
+                      <div className='flex gap-2'>
+                        <input
+                          type='number'
+                          className='px-2 py-2 border-2'
+                          placeholder='Set Amount'
+                          value={inputValue}
+                          onChange={handleSetbidamount}
+                        />
+                        <button
+                          onClick={handleSetClick}
+                          
+                          
+                          className={`px-4 py-2 ${autoMode ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                          disabled={loading || autoMode}
+                        >
+                          {loading ? 'Loading...' : 'Start'}
+                        </button>
 
-                    {!autoMode ? (
-                      <div className='flex md:flex-row flex-col md:gap-4 gap-2 bg-white rounded-md p-6'>
-                        <button onClick={Decrement} className='bg-green-100 hover:bg-green-300 md:px-6 flex items-center justify-center p-3' disabled={autoMode}>
-                          <GrFormSubtract className='text-black' />
-                        </button>
-                        <div className='font-bold rounded-sm md:px-[100px] px-12 border-2 py-3'>{value} $</div>
-                        <button onClick={Increment} className='bg-green-100 text-black hover:bg-green-300 md:px-6 p-3 flex items-center justify-center' disabled={autoMode}>
-                          <IoAddOutline className='' />
-                        </button>
-                        <button onClick={handleBidSubmit} type='submit' className='bg-blue-500 md:px-12 text-white py-3'>
-                          Bid
-                        </button>
+                        <button className='bg-red-500 px-4 py-2 text-white'
+                          onClick={() => {
+                            setAutoMode(false);
+                            setOpen(false);
+                          }}
+                        >Cancel</button>
                       </div>
+                    }
+
+
+                    {!open ? (
+                      <>
+                        <div>
+                          <p className="py-1">Bidding amount increase with : {Incrementvalue}</p>
+                          <h2 className='py-2 text-red-600'>Your next bid amount (current highest bid + Increment value)  :  <span className='font-extrabold'> $ {value} </span></h2>
+                        </div>
+                        <div className='flex md:flex-row flex-col md:gap-4 gap-2 bg-white rounded-md p-6'>
+                          {/* <button onClick={Decrement} className='bg-green-100 hover:bg-green-300 md:px-6 flex items-center justify-center p-3' disabled={autoMode}>
+                            <GrFormSubtract className='text-black' />
+                          </button> */}
+                          <div className='font-bold rounded-sm md:px-[100px] px-12 border-2 py-3'>{value} $</div>
+                          <button onClick={Increment} className='bg-green-100 text-black hover:bg-green-300 md:px-6 p-3 flex items-center justify-center' disabled={autoMode}>
+                            <IoAddOutline className='' />
+                          </button>
+                          <button onClick={handleBidSubmit} type='submit' className='bg-blue-500 md:px-12 text-white py-3'>
+                            Bid
+                          </button>
+                        </div></>
                     ) : null}
                   </div>
                 )
               }
-
-
 
             </div>
           </div>

@@ -174,7 +174,7 @@ const List = () => {
                                 {
                                     accessor: 'status',
                                     sortable: true,
-                                    render: ({ status }) => <div className="text-left font-semibold text-green-500 font-bold">{`${status}`}</div>,
+                                    render: ({ status }) => <div className="text-left  text-green-500 font-bold">{`${status}`}</div>,
                                     // render: ({ status  }) => <span className={`badge badge-outline-${status?.color} `}>{status?.tooltip}</span>,
                                 },
                                 {
